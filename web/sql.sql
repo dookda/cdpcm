@@ -1,0 +1,10 @@
+alter table tb_data add srvofftype character varying;
+alter table tb_data add sr_group character varying;
+alter table tb_data add gr_name character varying;
+alter table tb_data add itemid character varying;
+alter table tb_data add item character varying;
+alter table tb_data add itemcode character varying;
+alter table tb_data add unit character varying;
+alter table tb_data add rvu  numeric(16,2);
+alter table tb_data add genhos  numeric(16,2);
+alter table tb_data add commhos  numeric(16,2);
