@@ -81,13 +81,18 @@ $(function () {
             dataSrc: ''
         },
         columns: [{
-            // className: 'details-control',
-            // orderable: true,
-            // data: null,
-            // defaultContent: ''
+            //     className: 'details-control',
+            //     orderable: true,
+            //     data: null,
+            //     defaultContent: ''
             // }, {
             //     data: "id"
             // }, {
+            // {
+            //     orderable: false,
+            //     className: 'select-checkbox',
+            //     targets: 0
+            // },             {
             data: "disea_gr"
         }, {
             data: "disea_sgrp"
@@ -163,19 +168,79 @@ $(function () {
         ]
     });
 
-    $('#table').on('click', 'td.details-control', function () {
-        var dat = table.row(this).data();
-        var tr = $(this).closest('tr');
-        var row = table.row(tr);
-        if (row.child.isShown()) {
-            row.child.hide();
-            tr.removeClass('shown');
-        } else {
-            row.child(otherData(row.data())).show();
-            tr.addClass('shown');
-            // map.setView(L.latLng(dat.lat, dat.lon), 18);
-        }
+    var selData = [];
+
+    $('#table tbody').on('click', 'tr', function (e) {
+        $(this).toggleClass('selected');
+        // console.log(table.row(this).data());
+        // selData.push(table.row(this).data());
+        // console.log(selData);
     });
+
+
+    $('#button').click(function () {
+        // alert(table.rows('.selected').data().length + ' row(s) selected');
+        var data = table.rows('.selected').data();
+        // console.log(table.rows('.selected').data().length + ' row(s) selected');
+        $('#da').empty();
+
+        var col = Math.round(12 / data.length);
+        for (var i = 0; i < data.length; i++) {
+            console.log(i);
+            // console.log(data[i].id);
+            var txt = `<div class='col-${col}'>
+            ${data[i].disea_gr}<p>            
+            ${data[i].disea_sgrp}<p>
+            ${data[i].title}<p>            
+            ${data[i].author}<p>
+            ${data[i].std_area}<p>            
+            ${data[i].objective}<p>
+            ${data[i].cost_design}<p>            
+            ${data[i].abstract}<p>
+            ${data[i].year_pub}<p>            
+            ${data[i].orig_link}<p>
+            ${data[i].std_year}<p>            
+            ${data[i].std_design}<p>
+            ${data[i].samp_area}<p>            
+            ${data[i].samp_size}<p>
+            ${data[i].samp_meth}<p>            
+            ${data[i].missing}<p>
+            ${data[i].pub_type}<p>            
+            ${data[i].activity0}<p>
+            ${data[i].activity1}<p>            
+            ${data[i].type_cost0}<p>
+            ${data[i].type_cost1}<p>            
+            ${data[i].perspect}<p>
+            ${data[i].time_unit}<p>            
+            ${data[i].perso_unit}<p>            
+            ${data[i].cost_thb}<p>            
+            ${data[i].remark}<p>
+            <div>
+           `;
+            $('#da').append(txt);
+        };
+
+
+
+
+        console.log(data);
+
+    });
+
+
+
+    // $('#table').on('click', 'td.details-control', function () {
+    //     var dat = table.row(this).data();
+    //     var tr = $(this).closest('tr');
+    //     var row = table.row(tr);
+    //     if (row.child.isShown()) {
+    //         row.child.hide();
+    //         tr.removeClass('shown');
+    //     } else {
+    //         row.child(otherData(row.data())).show();
+    //         tr.addClass('shown');
+    //     }
+    // });
 
     function otherData(d) {
         return '<span><h5>Abstract: </h5> ' + d.abstract + '</span>';
@@ -261,4 +326,6 @@ $(function () {
     // filter22.appendTo("#d22");
     // filter23.appendTo("#d23");
     // filter24.appendTo("#d24");
+
+
 });
