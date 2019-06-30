@@ -1,0 +1,11 @@
+@import 'https://fonts.googleapis.com/css?family=Kanit:400,400i,500';
+
+body {
+    font-family: 'Kanit', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Kanit', sans-serif;
+}

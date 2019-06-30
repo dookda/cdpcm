@@ -21,7 +21,7 @@
 
     <!-- google icon and font -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh68N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit:100i,300,400,500">
 
     <!-- <link href="../assets/plugins/wizard/steps.css" rel="stylesheet"> -->
@@ -104,32 +104,22 @@
                 <div style="padding: 10px">
                     <div class="row page-titles">
 
-                        <div class="col-4">
+                        <div class="col-10">
                             <div class="card ">
-                                <!-- <div class="card-body">
-                                <h3 class="text-themecolor m-b-0 m-t-0">สืบค้น</h3>
-                                <br />
-                                <h6 class="card-subtitle">ค้นหาและแสดงรายละเอียดของข้อมูล</h6>
-                                <div>
-                                    <input id="myInput" type="text" class="form-control" placeholder="สืบค้นข้อมูล">
-                                </div>
-                            </div> -->
-                                <div class="card-body" style="height: 300px;">
-                                    <h2>CDPCM</h2>
+                                <div class="card-body" style="height: 100px;">
+                                    <!-- <h2>CDPCM</h2>
                                     Cost of Disease Prevention and Control Program, Thailand (CDPCM Thailand)
                                     <hr>
-                                    <h5>Basic Search</h5>
+                                    <h6>Basic Search</h6> -->
                                     <p>ค้นจากทุกขอบเขตเนื้อหาที่อยู่ในฐานข้อมูล</p>
                                     <p id='d0'></p>
-
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <!-- <div class="col-6">
                             <div class="card">
                                 <div class="card-body" style="height: 300px; overflow-y: auto;overflow-x: none;">
-                                    <h5>Advance Search</h5>
-                                    <!-- <span>สืบค้นจากคอลัมน์ที่สนใจ</span> -->
+                                    <h6>Advance Search</h6>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <p id='d1'>Cluster</p>
@@ -156,15 +146,13 @@
                                             <p id='d16'>Customer unit</p>
                                         </div>
                                     </div>
-
-
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="col-2">
                             <div class="card">
-                                <div class="card-body" style="height: 300px;">จำนวนข้อมูลที่พบ:
+                                <div class="card-body" style="height: 100px;">จำนวนข้อมูลที่พบ:
                                     <p>
                                         <h1 class="text-themecolor m-b-0 m-t-0" style="margin-left:40%;"> <span
                                                 id='count'></span></h1>
@@ -203,29 +191,63 @@
                                             <thead>
                                                 <tr>
                                                     <!-- <th>รายละเอียดเพิ่มเติม</th> -->
-                                                    <th>Cluster</th>
-                                                    <th>Disease</th>
-                                                    <th>Study title</th>
-                                                    <th>Author’s name</th>
-                                                    <th>Study area (province)</th>
+                                                    <th>
+                                                        <h6>Cluster</h6>
+                                                    </th>
+                                                    <th>
+                                                        <h6>โรค</h6>
+                                                    </th>
+                                                    <th>
+                                                        <h6>ชื่อการศึกษา</h6>
+                                                    </th>
+                                                    <th>
+                                                        <h6>ผู้ศึกษา</h6>
+                                                    </th>
+                                                    <th>
+                                                        <h6>จังหวัดที่ศึกษา</h6>
+                                                    </th>
                                                     <!-- <th>Objective of study</th> -->
-                                                    <th>Economic evaluation model</th>
-                                                    <th>Publish year</th>
-                                                    <th>Study year</th>
-                                                    <th>Study design</th>
+                                                    <th>
+                                                        <h6>Economic evaluation model</h6>
+                                                    </th>
+                                                    <th>
+                                                        <h6>ปีที่ตีพิมพ์</h6>
+                                                    </th>
+                                                    <th>
+                                                        <h6>ปีที่ศึกษา</h6>
+                                                    </th>
+                                                    <th>
+                                                        <h6>รูปแบบการศึกษา</h6>
+                                                    </th>
                                                     <!-- <th>Study area</th> -->
-                                                    <th>Sample size</th>
-                                                    <th>Sampling method</th>
+                                                    <th>
+                                                        <h6>ขนาดตัวอย่าง</h6>
+                                                    </th>
+                                                    <th>
+                                                        <h6>วิธีการสุ่มตัวอย่าง</h6>
+                                                    </th>
                                                     <!-- <th>Missing data </th> -->
-                                                    <th>Publish type</th>
-                                                    <th>Main activity</th>
+                                                    <th>
+                                                        <h6>แหล่งที่เผยแพร่</h6>
+                                                    </th>
+                                                    <th>
+                                                        <h6>ชื่อกลุ่มประเภทการให้บริการ</h6>
+                                                    </th>
                                                     <!-- <th>Sub activity</th> -->
                                                     <!-- <th>Type of costing</th> -->
                                                     <!-- <th>Sub type of costing</th> -->
-                                                    <th>Customer Provider Purchaser Society</th>
-                                                    <th>Time of cost analysis</th>
-                                                    <th>Customer unit</th>
-                                                    <th>Cost in TH-Bath</th>
+                                                    <th>
+                                                        <h6>มุมมองของต้นทุน</h6>
+                                                    </th>
+                                                    <th>
+                                                        <h6>หน่วยเวลาที่วัด</h6>
+                                                    </th>
+                                                    <th>
+                                                        <h6>หน่วยรับบริการ</h6>
+                                                    </th>
+                                                    <th>
+                                                        <h6>ราคาต้นทุน (บาท)</h6>
+                                                    </th>
                                                     <!-- <th>Remark</th> -->
                                                 </tr>
                                             </thead>

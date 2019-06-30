@@ -147,6 +147,8 @@ $(function () {
         }],
         // scrollY: '50vh',
         // scrollY: 200,
+        // lengthChange: false,
+        iDisplayLength: 5,
         scrollX: true,
         scrollCollapse: true,
         bPaginate: true,
