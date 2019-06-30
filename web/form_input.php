@@ -133,7 +133,7 @@ if (!$_SESSION["UserID"]){
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="disea_gr">DISEA_GR :</label>
+                                                <label for="disea_gr">กลุ่มโรค (Cluster):</label>
                                                 <select class="custom-select form-control required" id="disea_gr"
                                                     name="disea_gr">
                                                     <option value="">เลือก</option>
@@ -145,7 +145,7 @@ if (!$_SESSION["UserID"]){
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="disea_sgrp">DISEA_SGRP :</label>
+                                                <label for="disea_sgrp">โรค (Disease):</label>
                                                 <select class="custom-select form-control required" id="disea_sgrp"
                                                     name="disea_sgrp">
                                                     <option value="">เลือก</option>
@@ -171,24 +171,24 @@ if (!$_SESSION["UserID"]){
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="title">TITLE :</label>
+                                                <label for="title">ชื่อการศึกษา (Study title):</label>
                                                 <input type="text" class="form-control required" id="title"
                                                     name="title">
                                             </div>
                                             <div class="form-group">
-                                                <label for="author">AUTHOR :</label>
+                                                <label for="author">ผู้ศึกษา (Author’s name):</label>
                                                 <input type="text" class="form-control required" id="author"
                                                     name="author">
                                             </div>
                                             <div class="form-group">
-                                                <label for="std_area">STD_AREA :</label>
+                                                <label for="std_area">จังหวัดที่ศึกษา (Study area):</label>
                                                 <input type="text" class="form-control required" id="std_area"
                                                     name="std_area">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="objective">OBJECTIVE :</label>
+                                                <label for="objective">วัตถุประสงค์ของการศึกษา (Objective of study):</label>
                                                 <input type="text" class="form-control required" id="objective"
                                                     name="objective">
                                             </div>
@@ -212,7 +212,7 @@ if (!$_SESSION["UserID"]){
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="abstracts">ABSTRACT :</label>
+                                                <label for="abstracts">บทคัดย่อ (Abstract):</label>
                                                 <textarea type="shortDescription" class="form-control required"
                                                     rows="10" id="abstracts" name="abstracts"></textarea>
                                             </div>
@@ -225,7 +225,7 @@ if (!$_SESSION["UserID"]){
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="year_pub">YEAR_PUB :</label>
+                                                <label for="year_pub">ปีที่ตีพิมพ์ (Publish year):</label>
                                                 <select class="custom-select form-control required" id="year_pub"
                                                     name="year_pub">
                                                     <option value="">เลือก</option>
@@ -253,17 +253,17 @@ if (!$_SESSION["UserID"]){
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="orig_link">Orig_Link :</label>
+                                                <label for="orig_link">Oiginal source (Web link, if available):</label>
                                                 <input type="text" class="form-control required" id="orig_link"
                                                     name="orig_link">
                                             </div>
                                             <div class="form-group">
-                                                <label for="std_year">STD_YEAR :</label>
+                                                <label for="std_year">ปีที่ศึกษา (Study year):</label>
                                                 <input type="text" class="form-control required" id="std_year"
                                                     name="std_year">
                                             </div>
                                             <div class="form-group">
-                                                <label for="std_design">STD_DESIGN :</label>
+                                                <label for="std_design">รูปแบบการศึกษา (Study design):</label>
                                                 <select class="custom-select form-control required" id="std_design"
                                                     name="std_design">
                                                     <option value="">เลือก</option>
@@ -277,29 +277,29 @@ if (!$_SESSION["UserID"]){
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="samp_area">SAMP_AREA :</label>
+                                                <label for="samp_area">พื้นที่ศึกษา (Study area):</label>
                                                 <input type="text" class="form-control required" id="samp_area"
                                                     name="samp_area">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="samp_size">SAMP_SIZE :</label>
+                                                <label for="samp_size">ขนาดตัวอย่าง (Sample size):</label>
                                                 <input type="text" class="form-control required" id="samp_size"
                                                     name="samp_size">
                                             </div>
                                             <div class="form-group">
-                                                <label for="samp_meth">SAMP_METH :</label>
+                                                <label for="samp_meth">วิธีการสุ่มตัวอย่าง (Sampling method):</label>
                                                 <input type="text" class="form-control required" id="samp_meth"
                                                     name="samp_meth">
                                             </div>
                                             <div class="form-group">
-                                                <label for="missing">MISSINGs :</label>
+                                                <label for="missing">Missing data:</label>
                                                 <input type="text" class="form-control required" id="missing"
                                                     name="missing">
                                             </div>
                                             <div class="form-group">
-                                                <label for="pub_type">PUB_TYPE :</label>
+                                                <label for="pub_type">แหล่งที่เผยแพร่ (Publish type):</label>
                                                 <select class="custom-select form-control required" id="pub_type"
                                                     name="pub_type">
                                                     <option value="">เลือก</option>
@@ -322,27 +322,27 @@ if (!$_SESSION["UserID"]){
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="activity0">ACTIVITY0 :</label>
+                                                <label for="activity0">ชื่อกลุ่มประเภทการให้บริการ:</label>
                                                 <input type="text" class="form-control required" id="activity0"
                                                     name="activity0">
                                             </div>
                                             <div class="form-group">
-                                                <label for="activity1">ACTIVITY1 :</label>
+                                                <label for="activity1">รายการการให้บริการ:</label>
                                                 <input type="text" class="form-control required" id="activity1"
                                                     name="activity1">
                                             </div>
                                             <div class="form-group">
-                                                <label for="type_cost0">TYPE_COST0 :</label>
+                                                <label for="type_cost0">ที่มาต้นทุน (Direct/Indirect):</label>
                                                 <input type="text" class="form-control required" id="type_cost0"
                                                     name="type_cost0">
                                             </div>
                                             <div class="form-group">
-                                                <label for="type_cost1">TYPE_COST1 :</label>
+                                                <label for="type_cost1">Sub type of costing:</label>
                                                 <input type="text" class="form-control required" id="type_cost1"
                                                     name="type_cost1">
                                             </div>
                                             <div class="form-group">
-                                                <label for="perspect">PERSPECT :</label>
+                                                <label for="perspect">มุมมองของต้นทุน (Customer/Provider/Purchaser/Society):</label>
                                                 <select class="custom-select form-control required" id="perspect"
                                                     name="perspect">
                                                     <option value="">เลือก</option>
@@ -354,7 +354,7 @@ if (!$_SESSION["UserID"]){
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="time_unit">TIME_UNIT :</label>
+                                                <label for="time_unit">หน่วยเวลาที่วัด (Time unit of cost analysis):</label>
                                                 <select class="custom-select form-control required" id="time_unit"
                                                     name="time_unit">
                                                     <option value="">เลือก</option>
@@ -371,7 +371,7 @@ if (!$_SESSION["UserID"]){
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="perso_unit">PERSO_UNIT :</label>
+                                                <label for="perso_unit">หน่วยรับบริการ (Customer unit (person/group/Oth):</label>
                                                 <select class="custom-select form-control required" id="perso_unit"
                                                     name="perso_unit">
                                                     <option value="">เลือก</option>
@@ -381,14 +381,14 @@ if (!$_SESSION["UserID"]){
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="cost_thb">COST-THB :</label>
+                                                <label for="cost_thb">ราคาต้นทุน (บาท):</label>
                                                 <input type="number" step="any" class="form-control required"
                                                     id="cost_thb" name="cost_thb">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="perso_unit">srvofftype :</label>
+                                                <label for="perso_unit">หน่วยให้บริการสาธารณสุข:</label>
                                                 <select class="custom-select form-control required" id="srvofftype"
                                                     name="srvofftype">
                                                     <option value="">เลือก</option>
@@ -401,7 +401,7 @@ if (!$_SESSION["UserID"]){
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="perso_unit">sr_group :</label>
+                                                <label for="perso_unit">กลุ่มประเภทการให้บริการ:</label>
                                                 <select class="custom-select form-control required" id="sr_group"
                                                     name="sr_group">
                                                     <option value="">เลือก</option>
@@ -425,7 +425,7 @@ if (!$_SESSION["UserID"]){
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="perso_unit">gr_name :</label>
+                                                <label for="perso_unit">ชื่อกลุ่มประเภทการให้บริการ:</label>
                                                 <select class="custom-select form-control required" id="gr_name"
                                                     name="gr_name">
                                                     <option value="">เลือก</option>
@@ -465,7 +465,7 @@ if (!$_SESSION["UserID"]){
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="perso_unit">itemid :</label>
+                                                <label for="perso_unit">ลำดับรหัสกลุ่มบริการ:</label>
                                                 <select class="custom-select form-control required" id="itemid"
                                                     name="itemid">
                                                     <option value="">เลือก</option>
@@ -475,7 +475,7 @@ if (!$_SESSION["UserID"]){
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="perso_unit">item :</label>
+                                                <label for="perso_unit">รายการการให้บริการ:</label>
                                                 <select class="custom-select form-control required" id="item"
                                                     name="item">
                                                     <option value="">เลือก</option>
@@ -485,7 +485,7 @@ if (!$_SESSION["UserID"]){
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="perso_unit">itemcode :</label>
+                                                <label for="perso_unit">รหัสรายการ:</label>
                                                 <select class="custom-select form-control required" id="itemcode"
                                                     name="itemcode">
                                                     <option value="">เลือก</option>
@@ -495,7 +495,7 @@ if (!$_SESSION["UserID"]){
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="perso_unit">unit :</label>
+                                                <label for="perso_unit">หน่วยนับ:</label>
                                                 <select class="custom-select form-control required" id="unit"
                                                     name="unit">
                                                     <option value="">เลือก</option>
@@ -559,25 +559,25 @@ if (!$_SESSION["UserID"]){
 
 
                                             <div class="form-group">
-                                                <label for="cost_thb">rvu :</label>
+                                                <label for="cost_thb">ค่าต้นทุนต่อหนึ่งหน่วยต้นทุนสัมพัทธ์:</label>
                                                 <input type="number" step="any" class="form-control required" id="rvu"
                                                     name="rvu">
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="cost_thb">genhos :</label>
+                                                <label for="cost_thb">ค่าต้นทุนต่อหนึ่งหน่วยบริการใน รพ.ทั่วไป/รพ.ศูนย์:</label>
                                                 <input type="number" step="any" class="form-control required"
                                                     id="genhos" name="genhos">
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="cost_thb">commhos :</label>
+                                                <label for="cost_thb">ค่าต้นทุนต่อหนึ่งหน่วยบริการใน รพ.ชุมชน:</label>
                                                 <input type="number" step="any" class="form-control required"
                                                     id="commhos" name="commhos">
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="remark">Remark :</label>
+                                                <label for="remark">หมายเหตุ:</label>
                                                 <textarea type="text" class="form-control required" rows="4" id="remark"
                                                     name="remark"></textarea>
                                             </div>
