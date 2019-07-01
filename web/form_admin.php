@@ -95,7 +95,7 @@ if (!$_SESSION["UserID"]) {
                             </a>
                         </li>
 
-                        <li>
+                        <!-- <li>
                             <a class="has-arrow" href="form_input.php" aria-expanded="false">
                                 <i class="mdi mdi-library-plus"></i>
                                 <span class="hide-menu">เพิ่มข้อมูล</span>
@@ -112,7 +112,7 @@ if (!$_SESSION["UserID"]) {
                                 <i class="mdi mdi-account-circle"></i>
                                 <span class="hide-menu">ข้อมูลส่วนตัว</span>
                             </a>
-                        </li>
+                        </li> -->
                         <li>
                             <a class="has-arrow" href="logout.php" aria-expanded="false">
                                 <i class="mdi mdi-logout"></i>
@@ -132,23 +132,35 @@ if (!$_SESSION["UserID"]) {
                             <div class="col-12 col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
-
+                                        <h4>เพิ่มผู้ใช้งานระบบ</h4><br />
+                                        <button id="addUser" class="btn btn-success">เพิ่มผู้ใช้งาน</button>
+                                        <hr>
+                                        <h4>รายชื่อ user ผู้เข้าใช้งาน</h4>
                                         <!-- <div id="container" style="width: 100%; height: 400px; margin: 0 auto"></div> -->
                                         <table id="user" class="table table-striped table-bordered display" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>
-                                                    <th>First name</th>
-                                                    <th>Last name</th>
-                                                    <th>Position</th>
-                                                    <th>Office</th>
-                                                    <th>Start date</th>
-                                                    <th>Salary</th>
+                                                    <th>
+                                                        <h6>username</h6>
+                                                    </th>
+                                                    <th>
+                                                        <h6>password</h6>
+                                                    </th>
+                                                    <th>
+                                                        <h6>First name</h6>
+                                                    </th>
+                                                    <th>
+                                                        <h6>Last name</h6>
+                                                    </th>
+                                                    <th>
+                                                        <h6>descriptive</h6>
+                                                    </th>
+                                                    <th>
+                                                        <h6>Delete</h6>
+                                                    </th>
                                                 </tr>
                                             </thead>
                                         </table>
-
-                                        <br />
-                                        <button id="addRow">Add New Row</button>
 
                                     </div>
                                 </div>
@@ -162,10 +174,75 @@ if (!$_SESSION["UserID"]) {
             </div>
             <footer class="footer"> © 2018 สำนักงานป้องกันควบคุมโรคที่ 2 จังหวัดพิษณุโลก </footer>
         </div>
+
+        <!-- add Modal -->
+        <div class="modal fade" id="addModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-body" style="padding:40px 50px;">
+                        <form role="form">
+                            <div class="form-group">
+                                <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+                                <input type="text" class="form-control" id="add_id_user">
+                            </div>
+                            <div class="form-group">
+                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                                <input type="text" class="form-control" id="add_id_pass">
+                            </div>
+                            <div class="form-group">
+                                <label for="usrname"><span class="glyphicon glyphicon-user"></span> ชื่อ</label>
+                                <input type="text" class="form-control" id="add_firstname">
+                            </div>
+                            <div class="form-group">
+                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> นามสกุล</label>
+                                <input type="text" class="form-control" id="add_lastname">
+                            </div>
+                            <div class="form-group">
+                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> คำอธิบาย</label>
+                                <textarea class="form-control" id="add_pdesc"></textarea>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <button type="submit" id="btnAddUsr" class="btn btn-success btn-block" data-dismiss="modal"><span class="glyphicon glyphicon-off"></span> ตกลง</button></div>
+                                <div class="col-6">
+                                    <button type="submit" class="btn btn-danger btn-block" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> ยกเลิก</button></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- remove modal -->
+        <div class="modal fade" id="removeModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-body" style="padding:40px 50px;">
+                        <form role="form">
+                            <h5>คุณต้องการลบ:</h5>
+                            id: <span id="rm_id"></span><br>
+                            id_user: <span id="rm_id_user"></span><br>
+                            firstname: <span id="rm_firstname"></span><br>
+                            lastname: <span id="rm_lastname"></span><br>
+                            <p></p>
+                            <div class="row">
+                                <div class="col-6">
+                                    <button type="submit" id="btnYesDel" class="btn btn-success btn-block" data-dismiss="modal"><span class="glyphicon glyphicon-ok"></span> ตกลง</button></div>
+                                <div class="col-6">
+                                    <button type="submit" class="btn btn-danger btn-block" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> ยกเลิก</button></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- <script src="../assets/plugins/jquery/jquery.min.js"></script> -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap.min.js"></script>
     <script src="../assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>

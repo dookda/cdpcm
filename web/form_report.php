@@ -127,25 +127,17 @@ if (!$_SESSION["UserID"]) {
             <div style="padding: 10px">
                 <div class="row page-titles">
 
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6 col-md-6">
-                                <div class="card">
-                                    <div class="row">
-
-                                        <div id="container" style="width: 100%; height: 400px; margin: 0 auto"></div>
-
-
-                                    </div>
-                                </div>
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div id="container" style="width: 100%; height: 400px; margin: 0 auto"></div>
                             </div>
                         </div>
                     </div>
 
                 </div>
-
-                <!-- .right-sidebar -->
             </div>
+
             <footer class="footer"> © 2018 สำนักงานป้องกันควบคุมโรคที่ 2 จังหวัดพิษณุโลก </footer>
         </div>
     </div>
