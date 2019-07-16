@@ -72,6 +72,64 @@ $(function () {
         $(".right-sidebar").toggleClass("shw-rside");
     });
 
+
+    $.fn.dataTable.ext.buttons.select = {
+        action: function (e, dt, node, config) {
+            $('#myModal').modal('show');
+            const data = table.rows('.selected').data();
+            $('#da').empty();
+            var col = Math.round(12 / data.length);
+            for (var i = 0; i < data.length; i++) {
+                console.log(i);
+                // console.log(data[i].id);
+                var txt = `<div class='col-${col}'>
+                    ${data[i].disea_gr}<p>            
+                    ${data[i].disea_sgrp}<p>
+                    ${data[i].title}<p>            
+                    ${data[i].author}<p>
+                    ${data[i].std_area}<p>            
+                    ${data[i].objective}<p>
+                    ${data[i].cost_design}<p>            
+                    ${data[i].abstract}<p>
+                    ${data[i].year_pub}<p>            
+                    ${data[i].orig_link}<p>
+                    ${data[i].std_year}<p>            
+                    ${data[i].std_design}<p>
+                    ${data[i].samp_area}<p>            
+                    ${data[i].samp_size}<p>
+                    ${data[i].samp_meth}<p>            
+                    ${data[i].missing}<p>
+                    ${data[i].pub_type}<p>            
+                    ${data[i].activity0}<p>
+                    ${data[i].activity1}<p>            
+                    ${data[i].type_cost0}<p>
+                    ${data[i].type_cost1}<p>            
+                    ${data[i].perspect}<p>
+                    ${data[i].time_unit}<p>            
+                    ${data[i].perso_unit}<p>            
+                    ${data[i].cost_thb}<p>            
+                    ${data[i].remark}<p>
+                    <div>
+                `;
+                $('#da').append(txt);
+            };
+        }
+    };
+
+
+    $.fn.dataTable.ext.buttons.edit = {
+
+        action: (e, dt, node, config) => {
+            const data = table.rows('.selected').data();
+
+            if (data.length == 0) {
+                console.log('unn')
+            } else {
+                window.open('./form_edit.php?id=' + data[0].id);
+            }
+        }
+    }
+
     // data tables
     const url = "http://cgi.uru.ac.th/cdpcm/web/selectdata.php";
     let table = $('#table').DataTable({
@@ -149,14 +207,25 @@ $(function () {
         buttons: [{
             extend: 'excel',
             text: 'ส่งออกเป็น excel',
-            className: 'btnMod',
+            // className: 'btn-group',
             filename: 'cdpcm_excel',
             exportOptions: {
                 modifier: {
                     page: 'all'
                 }
             }
-        }, ],
+        }, {
+            extend: 'select',
+            text: 'ดูข้อมูลที่เลือก',
+            // className: 'btn-group'
+        }, {
+            extend: 'edit',
+            text: 'แก้ใขข้อมูล',
+            // className: 'btn-group'
+        }, {
+            extend: 'colvis',
+            text: 'เลือกคอลัมน์'
+        }],
         // scrollY: '50vh',
         // scrollY: 200,
         // lengthChange: false,
@@ -196,65 +265,6 @@ $(function () {
     });
 
 
-
-    $('#button').click(function () {
-        // alert(table.rows('.selected').data().length + ' row(s) selected');
-        var data = table.rows('.selected').data();
-        // console.log(table.rows('.selected').data().length + ' row(s) selected');
-        $('#da').empty();
-
-        var col = Math.round(12 / data.length);
-        for (var i = 0; i < data.length; i++) {
-            console.log(i);
-            // console.log(data[i].id);
-            var txt = `<div class='col-${col}'>
-            ${data[i].disea_gr}<p>            
-            ${data[i].disea_sgrp}<p>
-            ${data[i].title}<p>            
-            ${data[i].author}<p>
-            ${data[i].std_area}<p>            
-            ${data[i].objective}<p>
-            ${data[i].cost_design}<p>            
-            ${data[i].abstract}<p>
-            ${data[i].year_pub}<p>            
-            ${data[i].orig_link}<p>
-            ${data[i].std_year}<p>            
-            ${data[i].std_design}<p>
-            ${data[i].samp_area}<p>            
-            ${data[i].samp_size}<p>
-            ${data[i].samp_meth}<p>            
-            ${data[i].missing}<p>
-            ${data[i].pub_type}<p>            
-            ${data[i].activity0}<p>
-            ${data[i].activity1}<p>            
-            ${data[i].type_cost0}<p>
-            ${data[i].type_cost1}<p>            
-            ${data[i].perspect}<p>
-            ${data[i].time_unit}<p>            
-            ${data[i].perso_unit}<p>            
-            ${data[i].cost_thb}<p>            
-            ${data[i].remark}<p>
-            <div>
-           `;
-            $('#da').append(txt);
-        };
-        // console.log(data);
-    });
-
-
-    // $('#table').on('click', 'td.details-control', function () {
-    //     var dat = table.row(this).data();
-    //     var tr = $(this).closest('tr');
-    //     var row = table.row(tr);
-    //     if (row.child.isShown()) {
-    //         row.child.hide();
-    //         tr.removeClass('shown');
-    //     } else {
-    //         row.child(otherData(row.data())).show();
-    //         tr.addClass('shown');
-    //     }
-    // });
-
     function otherData(d) {
         return '<span><h5>Abstract: </h5> ' + d.abstract + '</span>';
     }
@@ -262,6 +272,11 @@ $(function () {
     $('#myInput').on('keyup', function () {
         table.search(this.value).draw();
     });
+
+    table.buttons().container()
+        .appendTo('#table_wrapper .col-sm-6:eq(0)');
+
+
 
     function createFilter(table, columns) {
         var input = $('<input class="form-control" type="text">').on("keyup", function () {
@@ -289,22 +304,22 @@ $(function () {
     }
     // var table = $("#table").DataTable();
     var filter0 = createFilter(table, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
-    var filter1 = createFilter(table, [0, 1]);
-    var filter2 = createFilter(table, [2]);
-    var filter3 = createFilter(table, [3]);
-    var filter4 = createFilter(table, [4]);
-    var filter5 = createFilter(table, [5]);
-    var filter6 = createFilter(table, [6]);
-    var filter7 = createFilter(table, [7]);
-    var filter8 = createFilter(table, [8]);
-    var filter9 = createFilter(table, [9]);
-    var filter10 = createFilter(table, [10]);
-    var filter11 = createFilter(table, [11]);
-    var filter12 = createFilter(table, [12]);
-    var filter13 = createFilter(table, [13]);
-    var filter14 = createFilter(table, [14]);
-    var filter15 = createFilter(table, [15]);
-    var filter16 = createFilter(table, [16]);
+    // var filter1 = createFilter(table, [0, 1]);
+    // var filter2 = createFilter(table, [2]);
+    // var filter3 = createFilter(table, [3]);
+    // var filter4 = createFilter(table, [4]);
+    // var filter5 = createFilter(table, [5]);
+    // var filter6 = createFilter(table, [6]);
+    // var filter7 = createFilter(table, [7]);
+    // var filter8 = createFilter(table, [8]);
+    // var filter9 = createFilter(table, [9]);
+    // var filter10 = createFilter(table, [10]);
+    // var filter11 = createFilter(table, [11]);
+    // var filter12 = createFilter(table, [12]);
+    // var filter13 = createFilter(table, [13]);
+    // var filter14 = createFilter(table, [14]);
+    // var filter15 = createFilter(table, [15]);
+    // var filter16 = createFilter(table, [16]);
     // var filter17 = createFilter(table, [17]);
     // var filter18 = createFilter(table, [18]);
     // var filter19 = createFilter(table, [19]);
@@ -314,23 +329,23 @@ $(function () {
     // var filter23 = createFilter(table, [23]);
     // var filter24 = createFilter(table, [24]);
 
-    filter0.appendTo("#d0");
-    filter1.appendTo("#d1");
-    filter2.appendTo("#d2");
-    filter3.appendTo("#d3");
-    filter4.appendTo("#d4");
-    filter5.appendTo("#d5");
-    filter6.appendTo("#d6");
-    filter7.appendTo("#d7");
-    filter8.appendTo("#d8");
-    filter9.appendTo("#d9");
-    filter10.appendTo("#d10");
-    filter11.appendTo("#d11");
-    filter12.appendTo("#d12");
-    filter13.appendTo("#d13");
-    filter14.appendTo("#d14");
-    filter15.appendTo("#d15");
-    filter16.appendTo("#d16");
+    // filter0.appendTo("#d0");
+    // filter1.appendTo("#d1");
+    // filter2.appendTo("#d2");
+    // filter3.appendTo("#d3");
+    // filter4.appendTo("#d4");
+    // filter5.appendTo("#d5");
+    // filter6.appendTo("#d6");
+    // filter7.appendTo("#d7");
+    // filter8.appendTo("#d8");
+    // filter9.appendTo("#d9");
+    // filter10.appendTo("#d10");
+    // filter11.appendTo("#d11");
+    // filter12.appendTo("#d12");
+    // filter13.appendTo("#d13");
+    // filter14.appendTo("#d14");
+    // filter15.appendTo("#d15");
+    // filter16.appendTo("#d16");
     // filter17.appendTo("#d17");
     // filter18.appendTo("#d18");
     // filter19.appendTo("#d19");
@@ -339,6 +354,5 @@ $(function () {
     // filter22.appendTo("#d22");
     // filter23.appendTo("#d23");
     // filter24.appendTo("#d24");
-
 
 });
