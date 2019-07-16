@@ -31,7 +31,7 @@ if (!$_SESSION["UserID"]) {
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap.min.css" />
 
     <!-- google icon and font -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit:100i,300,400,500">
 
     <!-- <link href="../assets/plugins/wizard/steps.css" rel="stylesheet"> -->
@@ -128,11 +128,48 @@ if (!$_SESSION["UserID"]) {
                 <div class="row page-titles">
 
                     <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div id="container" style="width: 100%; height: 400px; margin: 0 auto"></div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <!-- <select id="selFld"></select> -->
+                                        <div id="countChart" style="width: 100%; height: 400px; margin: 0 auto"></div>
+                                        <!-- <div id="chart2" style="width: 100%; height: 400px; margin: 0 auto"></div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <!-- <select id="selFld"></select> -->
+                                        <div id="sumChart" style="width: 100%; height: 400px; margin: 0 auto"></div>
+                                        <!-- <div id="chart2" style="width: 100%; height: 400px; margin: 0 auto"></div> -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <label for="sel1">เลือกชื่อโรค:</label>
+                                        <p></p>
+                                        <select class="form-control" id="selDisea">
+                                            <option value="Stroke">Stroke</option>
+                                            <option value="Smoking">Smoking</option>
+                                            <option value="HT">HT</option>
+                                            <option value="Alcohol">Alcohol</option>
+                                            <option value="CVD">CVD</option>
+                                            <option value="DM">DM</option>
+                                        </select>
+                                        <div id="diseaChart" style="width:100%; height:400px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>

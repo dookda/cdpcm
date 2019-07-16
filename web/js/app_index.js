@@ -86,8 +86,8 @@ $(function () {
             //     data: null,
             //     defaultContent: ''
             // }, {
-            //     data: "id"
-            // }, {
+            data: "id"
+        }, {
             // {
             //     orderable: false,
             //     className: 'select-checkbox',
@@ -145,6 +145,18 @@ $(function () {
             // }, {
             //     data: "remark"
         }],
+        dom: 'Bfrtip',
+        buttons: [{
+            extend: 'excel',
+            text: 'ส่งออกเป็น excel',
+            className: 'btnMod',
+            filename: 'cdpcm_excel',
+            exportOptions: {
+                modifier: {
+                    page: 'all'
+                }
+            }
+        }, ],
         // scrollY: '50vh',
         // scrollY: 200,
         // lengthChange: false,
@@ -154,7 +166,7 @@ $(function () {
         bPaginate: true,
         bLengthChange: true,
         bFilter: true,
-        bInfo: false,
+        bInfo: true,
         bAutoWidth: true,
         language: {
             "lengthMenu": "แสดงผล _MENU_ records",
@@ -164,7 +176,7 @@ $(function () {
             "infoFiltered": "(filtered from _MAX_ total records)",
             "search": "ค้นหาข้อมูล:",
         },
-        "dom": '<"top">rt<"bottom"ip><"clear">',
+        // "dom": '<"top">rt<"bottom"ip><"clear">',
         order: [
             [1, 'asc']
         ]
@@ -178,6 +190,11 @@ $(function () {
         // selData.push(table.row(this).data());
         // console.log(selData);
     });
+
+    $('#myInput').on('keyup', function () {
+        table.search(this.value).draw();
+    });
+
 
 
     $('#button').click(function () {
@@ -221,14 +238,8 @@ $(function () {
            `;
             $('#da').append(txt);
         };
-
-
-
-
-        console.log(data);
-
+        // console.log(data);
     });
-
 
 
     // $('#table').on('click', 'td.details-control', function () {

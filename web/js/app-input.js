@@ -181,36 +181,6 @@ $(function () {
         barSpacing: '4',
         barColor: '#7460ee'
     });
-    var sparkResize;
-
-    // step wizard
-    // $(".tab-wizard").steps({
-    //     headerTag: "h6",
-    //     bodyTag: "section",
-    //     transitionEffect: "fade",
-    //     titleTemplate: '<span class="step">#index#</span> #title#',
-    //     labels: {
-    //         finish: "Submit"
-    //     },
-    //     onFinishing: function (event, currentIndex) {
-    //         $.ajax({
-    //             type: 'POST',
-    //             url: 'insertdata.php',
-    //             data: $("#inputData").serialize(),
-    //             success: (d) => {
-    //                 console.log(d);
-    //                 swal("Form Submitted!", "ส่งแล้วเรียบร้อย");
-
-    //                 setInterval(() => {
-    //                     $(this).submit();
-    //                 }, 500)
-    //             }
-    //         })
-    //     },
-    //     onFinished: function (event, currentIndex) {
-    //         swal("Form Submitted!", "ส่งแล้วเรียบร้อย");
-    //     }
-    // });
 
     var form = $(".validation-wizard").show();
     $(".validation-wizard").steps({
@@ -266,4 +236,130 @@ $(function () {
         }
     })
     $.validator.messages.required = 'กรุณากรอกข้อมูล';
+
+
+    // Cost of study
+    // srvOffTypeVal
+    var srvOffTypeVal;
+    $.getJSON('http://cgi.uru.ac.th:3000/cdpcm/srvofftype', (data) => {
+        $.each(data, (key, value) => {
+            $('#srvOffType').append('<option [value=' + value.val + ']>' + value.val + '</option>');
+        });
+    });
+    $('#srvOffType').change(() => {
+        srvOffTypeVal = $('#srvOffType').val();
+        getGrpName(srvOffTypeVal);
+    });
+
+    // grpName
+    var grpNameVal;
+
+    function getGrpName(srvofftype) {
+        $('#grpName').empty().append('<option value="">เลือก</option>');
+        $.getJSON('http://cgi.uru.ac.th:3000/cdpcm/grpname/' + srvofftype, (data) => {
+            $.each(data, (key, value) => {
+                $('#grpName').append('<option [value=' + value.val + ']>' + value.val + '</option>');
+            });
+        })
+    }
+    $('#grpName').change(() => {
+        grpNameVal = $('#grpName').val();
+        getItem(grpNameVal);
+    });
+
+    // item
+    var itemVal;
+
+    function getItem(grpname) {
+        $('#item').empty().append('<option value="">เลือก</option>');
+        $.getJSON('http://cgi.uru.ac.th:3000/cdpcm/item/' + grpname, (data) => {
+            $.each(data, (key, value) => {
+                $('#item').append('<option [value=' + value.val + ']>' + value.val + '</option>');
+            });
+        })
+    }
+    $('#item').change(() => {
+        itemVal = $('#item').val();
+        getUnit(itemVal);
+    });
+
+    // unit
+    var unitVal;
+
+    function getUnit(itemval) {
+        $('#unit').empty().append('<option value="">เลือก</option>');
+        $.getJSON('http://cgi.uru.ac.th:3000/cdpcm/unit/' + itemval, (data) => {
+            $.each(data, (key, value) => {
+                $('#unit').append('<option [value=' + value.val + ']>' + value.val + '</option>');
+            });
+        })
+    }
+    $('#unit').change(() => {
+        unitVal = $('#unit').val();
+        getRvu(unitVal);
+    });
+
+
+    // rvu
+    var rvuVal;
+
+    function getRvu(unitval) {
+        $('#rvu').empty().append('<option value="">เลือก</option>');
+        $.getJSON('http://cgi.uru.ac.th:3000/cdpcm/rvu/' + unitval, (data) => {
+            $.each(data, (key, value) => {
+                $('#rvu').append('<option [value=' + value.val + ']>' + value.val + '</option>');
+            });
+        })
+    }
+    $('#rvu').change(() => {
+        rvuVal = $('#rvu').val();
+        getGenHos(rvuVal);
+    });
+
+    // genHos
+    var genHosVal;
+
+    function getGenHos(rvuval) {
+        $('#GenHos').empty().append('<option value="">เลือก</option>');
+        $.getJSON('http://cgi.uru.ac.th:3000/cdpcm/genhos/' + rvuval, (data) => {
+            $.each(data, (key, value) => {
+                $('#GenHos').append('<option [value=' + value.val + ']>' + value.val + '</option>');
+            });
+        })
+    }
+    $('#GenHos').change(() => {
+        genHosVal = $('#GenHos').val();
+        getCommHos(rvuVal);
+    });
+
+    // commHost
+    var commHosVal;
+
+    function getCommHos(genhos) {
+        $('#CommHos').empty().append('<option value="">เลือก</option>');
+        $.getJSON('http://cgi.uru.ac.th:3000/cdpcm/commhos/' + genhos, (data) => {
+            $.each(data, (key, value) => {
+                $('#CommHos').append('<option [value=' + value.val + ']>' + value.val + '</option>');
+            });
+        })
+    }
+    $('#CommHos').change(() => {
+        commHosVal = $('#CommHos').val();
+        // console.log(commHosVal);
+    });
+
+    $('#sendForm').click(() => {
+        var rObj = {};
+        var reformattedArray = $("#inputData").serializeArray().map(obj => {
+            rObj[obj.name] = obj.value;
+            return rObj;
+        });
+        const obj = reformattedArray[0];
+        console.log(obj);
+        $.post('http://cgi.uru.ac.th:3000/cdpcm/insert_data', obj, (data, stattus) => {
+            console.log(stattus);
+        })
+    });
+
+
 });

@@ -72,81 +72,134 @@ $(function () {
         $(".right-sidebar").toggleClass("shw-rside");
     });
 
-    // hichart
-    var chart = {
-        type: 'column'
-    };
-    var title = {
-        text: 'Monthly Average Rainfall'
-    };
-    var subtitle = {
-        text: 'Source: WorldClimate.com'
-    };
-    var xAxis = {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
-            'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-        ],
-        crosshair: true
-    };
-    var yAxis = {
-        min: 0,
-        title: {
-            text: 'Rainfall (mm)'
-        }
-    };
-    var tooltip = {
-        headerFormat: '<span style = "font-size:10px">{point.key}</span><table>',
-        pointFormat: '<tr><td style = "color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style = "padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-        footerFormat: '</table>',
-        shared: true,
-        useHTML: true
-    };
-    var plotOptions = {
-        column: {
-            pointPadding: 0.2,
-            borderWidth: 0
-        }
-    };
-    var credits = {
-        enabled: false
-    };
-    var series = [{
-            name: 'Tokyo',
-            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6,
-                148.5, 216.4, 194.1, 95.6, 54.4
-            ]
-        },
-        {
-            name: 'New York',
-            data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3,
-                91.2, 83.5, 106.6, 92.3
-            ]
-        },
-        {
-            name: 'London',
-            data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6,
-                52.4, 65.2, 59.3, 51.2
-            ]
-        },
-        {
-            name: 'Berlin',
-            data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4,
-                47.6, 39.1, 46.8, 51.1
-            ]
-        }
-    ];
 
-    var json = {};
-    json.chart = chart;
-    json.title = title;
-    json.subtitle = subtitle;
-    json.tooltip = tooltip;
-    json.xAxis = xAxis;
-    json.yAxis = yAxis;
-    json.series = series;
-    json.plotOptions = plotOptions;
-    json.credits = credits;
-    $('#container').highcharts(json);
+    // select option
+    var cat = [];
+    var count = [];
+    var sum = [];
+
+    $.getJSON('http://cgi.uru.ac.th:3000/cdpcm/tb_stat', (data) => {
+        $.each(data, (key, val) => {
+            // categories.push(key)
+            cat.push(val.name);
+            count.push({
+                name: val.name,
+                y: Number(val.count)
+            });
+            sum.push(Number(val.sum));
+        });
+
+        // count chart
+        var countChart = {};
+        countChart.chart = {
+            type: 'pie'
+        };
+        countChart.title = {
+            text: 'จำนวนรายงาน โรค (Disease)'
+        };
+        countChart.series = [{
+            name: 'Brands',
+            colorByPoint: true,
+            data: count
+        }];
+        countChart.credits = {
+            enabled: false
+        };
+        $('#countChart').highcharts(countChart);
+
+        // sum chart
+        var sumChart = {};
+        sumChart.chart = {
+            type: 'column'
+        };
+        sumChart.title = {
+            text: 'จำนวนเงิน โรค (Disease)'
+        };
+        // sumChart.tooltip = tooltip;
+        sumChart.xAxis = {
+            categories: cat,
+            crosshair: true
+        };
+        sumChart.yAxis = {
+            min: 0,
+            title: {
+                text: 'จำนวนเงิน (บาท)'
+            }
+        };
+        sumChart.series = [{
+            showInLegend: false,
+            data: sum
+        }];
+
+        sumChart.plotOptions = {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        };
+        sumChart.credits = {
+            enabled: false
+        };
+        $('#sumChart').highcharts(sumChart);
+    });
+
+    function getYear(disea) {
+        var dName = [];
+        var dCount = [];
+
+        $.getJSON('http://cgi.uru.ac.th:3000/cdpcm/tb_statyear/' + disea, (data) => {
+            $.each(data, (key, val) => {
+                // console.log(val);
+                dName.push(val.year);
+                dCount.push(Number(val.count));
+            })
+
+            var diseaChart = {};
+
+            diseaChart.chart = {
+                type: 'line'
+            };
+            diseaChart.title = {
+                text: 'จำนวนรายงานแยกตามปี'
+            };
+            diseaChart.xAxis = {
+                categories: dName
+            };
+            diseaChart.yAxis = {
+                title: {
+                    text: 'จำนวนรายงาน โรค (Disease)'
+                }
+            };
+            diseaChart.plotOptions = {
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: true
+                }
+            };
+            diseaChart.series = [{
+                showInLegend: false,
+                data: dCount
+            }];
+            $('#diseaChart').highcharts(diseaChart);
+        });
+    }
+    getYear('Stroke');
+
+
+    $('#selDisea').change(() => {
+        var selDisea = $('#selDisea').val();
+        getYear(selDisea);
+    });
+
+    // console.log($('#selDisea').val().change());
+
+
+
+    // $('#chart2').highcharts(json);
+
+
+
 
 });
