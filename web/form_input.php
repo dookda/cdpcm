@@ -75,7 +75,7 @@ if (!$_SESSION["UserID"]) {
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li>
-                            <a class="has-arrow" href="index.html" aria-expanded="false">
+                            <a class="has-arrow" href="index.php" aria-expanded="false">
                                 <i class="mdi mdi-file-find"></i>
                                 <span class="hide-menu">สืบค้น </span>
                             </a>
@@ -94,12 +94,12 @@ if (!$_SESSION["UserID"]) {
                                 <span class="hide-menu">รายงาน</span>
                             </a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a class="has-arrow" href="form_profile.php" aria-expanded="false">
                                 <i class="mdi mdi-account-circle"></i>
                                 <span class="hide-menu">ข้อมูลส่วนตัว</span>
                             </a>
-                        </li>
+                        </li> -->
                         <li>
                             <a class="has-arrow" href="logout.php" aria-expanded="false">
                                 <i class="mdi mdi-logout"></i>
@@ -117,6 +117,17 @@ if (!$_SESSION["UserID"]) {
             </div>
             <div class="row">
                 <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>import ข้อมูล</h4>
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleFormControlFile1">ข้อมูลที่สามารถนำเข้าสู่ระบบได้เป็นแบบ .csv </label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
                     <form id="inputData" onsubmit="return false">
                         <!-- Step 1 -->
@@ -390,7 +401,7 @@ if (!$_SESSION["UserID"]) {
                                         </div>
                                         <p></p>
                                         <p>
-                                            <button type="submit" id="sendForm" class="btn btn-primary">ส่งข้อมูล</button>
+                                            <button type="submit" id="sendForm" class="btn btn-primary">บันทึกข้อมูล</button>
                                             <p></p>
                                     </div>
                                 </div>
@@ -400,7 +411,7 @@ if (!$_SESSION["UserID"]) {
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h3>Reference</h3>
+                                <h3>Reference</h3> (ที่มา:โปรแกรมรายการต้นทุนมาตรฐานเพื่อการประเมินเทคโนโลยีด้านสุขภาพ)
                                 <div class="form-group">
                                     <label for="unit">หน่วยนับ :</label>
                                     <select id="unit" class="custom-select form-control required">

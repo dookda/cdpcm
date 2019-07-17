@@ -1,3 +1,17 @@
+<?php
+header('Content-Type: text/html; charset=utf-8');
+header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Credentials: true");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+session_start();
+
+if (!$_SESSION["UserID"]) {
+    Header("Location: form_login.php");
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,8 +76,7 @@
                     <div class="navbar-collapse">
                         <ul class="navbar-nav mr-auto mt-md-0">
                             <li class="nav-item">
-                                <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark"
-                                    href="javascript:void(0)">
+                                <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)">
                                     <i class="mdi mdi-menu"></i>
                                 </a>
                             </li>
@@ -76,23 +89,37 @@
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
                             <li>
-                                <a class="has-arrow" href="./../index.html" aria-expanded="false">
+                                <a class="has-arrow" href="index.php" aria-expanded="false">
                                     <i class="mdi mdi-file-find"></i>
-                                    <span class="hide-menu">หน้าหลัก</span>
+                                    <span class="hide-menu">สืบค้น </span>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a class="has-arrow" href="form_input.php" aria-expanded="false">
+                                    <i class="mdi mdi-library-plus"></i>
+                                    <span class="hide-menu">เพิ่มข้อมูล</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="has-arrow" href="form_login.php" aria-expanded="false">
-                                    <i class="mdi mdi-library-plus"></i>
-                                    <span class="hide-menu">เข้าสู่ระบบ</span>
+                                <a class="has-arrow" href="form_report.php" aria-expanded="false">
+                                    <i class="mdi mdi-chart-bar"></i>
+                                    <span class="hide-menu">รายงาน</span>
                                 </a>
                             </li>
                             <!-- <li>
-                            <a class="has-arrow" href="form_profile.php" aria-expanded="false">
-                                <i class="mdi mdi-gauge"></i>
-                                <span class="hide-menu">ข้อมูลส่วนตัว</span>
-                            </a>
-                        </li> -->
+                                <a class="has-arrow" href="form_profile.php" aria-expanded="false">
+                                    <i class="mdi mdi-account-circle"></i>
+                                    <span class="hide-menu">ข้อมูลส่วนตัว</span>
+                                </a>
+                            </li> -->
+                            <li>
+                                <a class="has-arrow" href="logout.php" aria-expanded="false">
+                                    <i class="mdi mdi-logout"></i>
+                                    <span class="hide-menu">logout</span>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -113,8 +140,7 @@
                             <div class="card">
                                 <div class="card-body" style="height: 100px;">จำนวนข้อมูลที่พบ:
                                     <p>
-                                        <h1 class="text-themecolor m-b-0 m-t-0" style="margin-left:40%;"> <span
-                                                id='count'></span></h1>
+                                        <h1 class="text-themecolor m-b-0 m-t-0" style="margin-left:40%;"> <span id='count'></span></h1>
                                     </p>
                                 </div>
                             </div>
@@ -260,7 +286,7 @@
     <script src="../assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
     <!-- <script src="../assets/plugins/sparkline/jquery.sparkline.min.js"></script> -->
     <!--Custom JavaScript -->
-    <script src="js/app_index_view.js"></script>
+    <script src="js/app_index.js"></script>
 </body>
 
 </html>

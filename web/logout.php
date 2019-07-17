@@ -7,5 +7,4 @@ header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 
 session_start();
 session_destroy();
-header("Location: index.html ");	
-?>
+header("Location: ./../index.html ");

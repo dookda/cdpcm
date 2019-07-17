@@ -182,7 +182,9 @@ $(function () {
     });
 
     $('#sendForm').click(() => {
-        var rObj = {};
+        var rObj = {
+            'id': id
+        };
         var reformattedArray = $("#inputData").serializeArray().map(obj => {
             rObj[obj.name] = obj.value;
             return rObj;
@@ -195,7 +197,6 @@ $(function () {
     });
 
     // Cost of study
-
     $.getJSON('http://cgi.uru.ac.th:3000/cdpcm/getselected/' + id, (d) => {
         var data = d[0];
         console.log(data);

@@ -89,7 +89,7 @@ if (!$_SESSION["UserID"]) {
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li>
-                            <a class="has-arrow" href="index.html" aria-expanded="false">
+                            <a class="has-arrow" href="index.php" aria-expanded="false">
                                 <i class="mdi mdi-file-find"></i>
                                 <span class="hide-menu">สืบค้น</span>
                             </a>
@@ -107,12 +107,12 @@ if (!$_SESSION["UserID"]) {
                                 <span class="hide-menu">รายงาน</span>
                             </a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a class="has-arrow" href="form_profile.php" aria-expanded="false">
                                 <i class="mdi mdi-account-circle"></i>
                                 <span class="hide-menu">ข้อมูลส่วนตัว</span>
                             </a>
-                        </li>
+                        </li> -->
                         <li>
                             <a class="has-arrow" href="logout.php" aria-expanded="false">
                                 <i class="mdi mdi-logout"></i>

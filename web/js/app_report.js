@@ -78,70 +78,73 @@ $(function () {
     var count = [];
     var sum = [];
 
-    $.getJSON('http://cgi.uru.ac.th:3000/cdpcm/tb_stat', (data) => {
-        $.each(data, (key, val) => {
-            // categories.push(key)
-            cat.push(val.name);
-            count.push({
-                name: val.name,
-                y: Number(val.count)
+    function getData() {
+        $.getJSON('http://cgi.uru.ac.th:3000/cdpcm/tb_stat', (data) => {
+            $.each(data, (key, val) => {
+                // categories.push(key)
+                cat.push(val.name);
+                count.push({
+                    name: val.name,
+                    y: Number(val.count)
+                });
+                sum.push(Number(val.sum));
             });
-            sum.push(Number(val.sum));
+
+            // count chart
+            var countChart = {};
+            countChart.chart = {
+                type: 'pie'
+            };
+            countChart.title = {
+                text: 'จำนวนรายงาน โรค (Disease)'
+            };
+            countChart.series = [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: count
+            }];
+            countChart.credits = {
+                enabled: false
+            };
+            $('#countChart').highcharts(countChart);
+
+            // sum chart
+            var sumChart = {};
+            sumChart.chart = {
+                type: 'column'
+            };
+            sumChart.title = {
+                text: 'จำนวนเงิน โรค (Disease)'
+            };
+            // sumChart.tooltip = tooltip;
+            sumChart.xAxis = {
+                categories: cat,
+                crosshair: true
+            };
+            sumChart.yAxis = {
+                min: 0,
+                title: {
+                    text: 'จำนวนเงิน (บาท)'
+                }
+            };
+            sumChart.series = [{
+                showInLegend: false,
+                data: sum
+            }];
+
+            sumChart.plotOptions = {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            };
+            sumChart.credits = {
+                enabled: false
+            };
+            $('#sumChart').highcharts(sumChart);
         });
+    };
 
-        // count chart
-        var countChart = {};
-        countChart.chart = {
-            type: 'pie'
-        };
-        countChart.title = {
-            text: 'จำนวนรายงาน โรค (Disease)'
-        };
-        countChart.series = [{
-            name: 'Brands',
-            colorByPoint: true,
-            data: count
-        }];
-        countChart.credits = {
-            enabled: false
-        };
-        $('#countChart').highcharts(countChart);
-
-        // sum chart
-        var sumChart = {};
-        sumChart.chart = {
-            type: 'column'
-        };
-        sumChart.title = {
-            text: 'จำนวนเงิน โรค (Disease)'
-        };
-        // sumChart.tooltip = tooltip;
-        sumChart.xAxis = {
-            categories: cat,
-            crosshair: true
-        };
-        sumChart.yAxis = {
-            min: 0,
-            title: {
-                text: 'จำนวนเงิน (บาท)'
-            }
-        };
-        sumChart.series = [{
-            showInLegend: false,
-            data: sum
-        }];
-
-        sumChart.plotOptions = {
-            column: {
-                pointPadding: 0.2,
-                borderWidth: 0
-            }
-        };
-        sumChart.credits = {
-            enabled: false
-        };
-        $('#sumChart').highcharts(sumChart);
-    });
 
     function getYear(disea) {
         var dName = [];
@@ -184,7 +187,33 @@ $(function () {
             }];
             $('#diseaChart').highcharts(diseaChart);
         });
-    }
+    };
+
+
+    function getPro() {
+        $.getJSON('http://cgi.uru.ac.th:3000/cdpcm/std_area', (data) => {
+            // console.log(data);
+            // str.split(" ");
+            let strArr = [];
+            data.forEach(e => {
+                let txt = e.std_area.replace(/\s/g, '');
+                let arr = txt.split(',');
+                arr.forEach(a => {
+                    strArr.push(a)
+                })
+            });
+            console.log(strArr);
+
+            // const arr1 = [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+            let x = (strArr) => strArr.filter((v, i) => strArr.indexOf(v) === i);
+            console.log(x);
+        })
+    };
+
+
+
+    getData();
+    getPro();
     getYear('Stroke');
 
 
@@ -192,12 +221,6 @@ $(function () {
         var selDisea = $('#selDisea').val();
         getYear(selDisea);
     });
-
-    // console.log($('#selDisea').val().change());
-
-
-
-    // $('#chart2').highcharts(json);
 
 
 

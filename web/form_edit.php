@@ -1,14 +1,14 @@
 <?php
-// header('Content-Type: text/html; charset=utf-8');
-// header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
-// header("Access-Control-Allow-Origin: *");
-// header("Access-Control-Allow-Credentials: true");
-// header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-// session_start();
+header('Content-Type: text/html; charset=utf-8');
+header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Credentials: true");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+session_start();
 
-// if (!$_SESSION["UserID"]) {
-//     Header("Location: form_login.php");
-// }
+if (!$_SESSION["UserID"]) {
+    Header("Location: form_login.php");
+}
 
 
 echo "<script>var id = " . $_GET['id'] . "</script>";
@@ -98,12 +98,12 @@ echo "<script>var id = " . $_GET['id'] . "</script>";
                                 <span class="hide-menu">รายงาน</span>
                             </a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a class="has-arrow" href="form_profile.php" aria-expanded="false">
                                 <i class="mdi mdi-account-circle"></i>
                                 <span class="hide-menu">ข้อมูลส่วนตัว</span>
                             </a>
-                        </li>
+                        </li> -->
                         <li>
                             <a class="has-arrow" href="logout.php" aria-expanded="false">
                                 <i class="mdi mdi-logout"></i>
@@ -394,7 +394,7 @@ echo "<script>var id = " . $_GET['id'] . "</script>";
                                         </div>
                                         <p></p>
                                         <p>
-                                            <button type="submit" id="sendForm" class="btn btn-primary">ส่งข้อมูล</button>
+                                            <button type="submit" id="sendForm" class="btn btn-primary">บันทึกข้อมูล</button>
                                             <p></p>
                                     </div>
                                 </div>
