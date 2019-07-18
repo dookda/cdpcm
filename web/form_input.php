@@ -120,12 +120,24 @@ if (!$_SESSION["UserID"]) {
                     <div class="card">
                         <div class="card-body">
                             <h4>import ข้อมูล</h4>
-                            <form>
+                            <!-- <form>
                                 <div class="form-group">
-                                    <label for="exampleFormControlFile1">ข้อมูลที่สามารถนำเข้าสู่ระบบได้เป็นแบบ .csv </label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <label for="exampleFormControlFile1">ข้อมูลที่สามารถนำเข้าสู่ระบบได้เป็นแบบ .txt </label>
+                                    <input type="file" class="form-control-file" id="upload" accept=".txt">
+                                    
                                 </div>
+                            </form> -->
+
+                            <form id="myForm" method="POST" action="upload.php" enctype="multipart/form-data">
+                                <div>
+                                    <label for="exampleFormControlFile1">ข้อมูลที่สามารถนำเข้าสู่ระบบได้เป็นแบบ .txt </label>
+                                    <input type="file" name="uploadedFile" class="form-control-file" accept=".txt" />
+                                </div>
+                                <p></p>
+                                <!-- <input type="submit" name="uploadBtn" value="Upload" /> -->
+                                <button type="submit" class="btn btn-primary" name="uploadBtn" value="Upload">Upload</button>
                             </form>
+
                         </div>
                     </div>
 
@@ -141,36 +153,12 @@ if (!$_SESSION["UserID"]) {
                                             <label for="disea_gr">โรค (Disease) :</label>
                                             <select class="custom-select form-control required" id="disea_gr" name="disea_gr" required>
                                                 <option value="">เลือก</option>
-                                                <option value="NATI">NATI</option>
-                                                <option value="CD">CD</option>
-                                                <option value="SALT">SALT</option>
-                                                <option value="EnOcc">EnOcc</option>
-                                                <option value="ไม่ระบุ">ไม่ระบุ</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="disea_sgrp">DISEA_SGRP :</label>
                                             <select class="custom-select form-control required" id="disea_sgrp" name="disea_sgrp" required>
                                                 <option value="">เลือก</option>
-                                                <option value="DM">DM</option>
-                                                <option value="HT">HT</option>
-                                                <option value="Stroke">Stroke</option>
-                                                <option value="CVD">CVD</option>
-                                                <option value="CKD">CKD</option>
-                                                <option value="Smoking">Smoking</option>
-                                                <option value="Injury">Injury</option>
-                                                <option value="Drowning">Drowning</option>
-                                                <option value="Dengue">Dengue</option>
-                                                <option value="Malaria">Malaria</option>
-                                                <option value="Diarrhea">Diarrhea</option>
-                                                <option value="Hepatitis">Hepatitis</option>
-                                                <option value="Immunization">Immunization</option>
-                                                <option value="Hand Food and Mouth">Hand Food and Mouth</option>
-                                                <option value="STI">STI</option>
-                                                <option value="AIDs">AIDs</option>
-                                                <option value="Leprosy">Leprosy</option>
-                                                <option value="TB">TB</option>
-                                                <option value="ไม่ระบุ">ไม่ระบุ</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -195,18 +183,6 @@ if (!$_SESSION["UserID"]) {
                                             <label for="cost_design">COST_Design :</label>
                                             <select class="custom-select form-control required" id="cost_design" name="cost_design" required>
                                                 <option value="">เลือก</option>
-                                                <option value="Cost Minimize Analysis (CMA)">Cost Minimize
-                                                    Analysis (CMA)</option>
-                                                <option value="Cost Effectiveness Analysis (CEA)">Cost
-                                                    Effectiveness Analysis (CEA)</option>
-                                                <option value="Cost Utility Analysis (CUA)">Cost Utility
-                                                    Analysis (CUA)</option>
-                                                <option value="Cost Benefit Analysis (CBA)">Cost Benefit
-                                                    Analysis (CBA)</option>
-                                                <option value="Unit Cost">Unit Cost</option>
-                                                <option value="Decision Analysis Model">Decision Analysis Model
-                                                </option>
-                                                <option value="ไม่ระบุ">ไม่ระบุ</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -230,30 +206,6 @@ if (!$_SESSION["UserID"]) {
                                             <label for="year_pub">ปีที่ตีพิมพ์ (Publish year) :</label>
                                             <select class="custom-select form-control required" id="year_pub" name="year_pub" required>
                                                 <option value="">เลือก</option>
-                                                <option value="2017">2020 (2563)</option>
-                                                <option value="2017">2019 (2562)</option>
-                                                <option value="2017">2018 (2561)</option>
-                                                <option value="2017">2017 (2560)</option>
-                                                <option value="2016">2016 (2559)</option>
-                                                <option value="2015">2015 (2558)</option>
-                                                <option value="2014">2014 (2557)</option>
-                                                <option value="2013">2013 (2556)</option>
-                                                <option value="2012">2012 (2555)</option>
-                                                <option value="2011">2011 (2554)</option>
-                                                <option value="2010">2010 (2553)</option>
-                                                <option value="2009">2009 (2552)</option>
-                                                <option value="2008">2008 (2551)</option>
-                                                <option value="2007">2007 (2550)</option>
-                                                <option value="2006">2006 (2549)</option>
-                                                <option value="2005">2005 (2548)</option>
-                                                <option value="2004">2004 (2547)</option>
-                                                <option value="2003">2003 (2546)</option>
-                                                <option value="2002">2002 (2545)</option>
-                                                <option value="2001">2001 (2544)</option>
-                                                <option value="2000">2000 (2543)</option>
-                                                <option value="1999">1999 (2542)</option>
-                                                <option value="1998">1998 (2541)</option>
-                                                <option value="9999">ไม่ระบุ</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -268,13 +220,6 @@ if (!$_SESSION["UserID"]) {
                                             <label for="std_design">รูปแบบการศึกษา (Study design) :</label>
                                             <select class="custom-select form-control required" id="std_design" name="std_design" required>
                                                 <option value="">เลือก</option>
-                                                <option value="Retrospective">Retrospective</option>
-                                                <option value="Prospective">Prospective</option>
-                                                <option value="Cross-sectional">Cross-sectional</option>
-                                                <option value="Case-control">Case-control</option>
-                                                <option value="Cohort">Cohort</option>
-                                                <option value="Systematic Review">Systematic Review</option>
-                                                <option value="ไม่ระบุ">ไม่ระบุ</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -299,14 +244,6 @@ if (!$_SESSION["UserID"]) {
                                             <label for="pub_type">แหล่งที่เผยแพร่ (Publish type) :</label>
                                             <select class="custom-select form-control required" id="pub_type" name="pub_type" required>
                                                 <option value="">เลือก</option>
-                                                <option value="International Journal">International Journal
-                                                </option>
-                                                <option value="National Journal">National Journal</option>
-                                                <option value="Regional Journal">Regional Journal</option>
-                                                <option value="Thesis/Dissertation">Thesis/Dissertation</option>
-                                                <option value="Official Report">Official Report</option>
-                                                <option value="Research Report">Research Report</option>
-                                                <option value="ไม่ระบุ">ไม่ระบุ</option>
                                             </select>
                                         </div>
                                     </div>
@@ -358,36 +295,18 @@ if (!$_SESSION["UserID"]) {
                                             <label for="perspect">มุมมองของต้นทุน (Customer/Provider/Purchaser/Society) :</label>
                                             <select class="custom-select form-control required" id="perspect" name="perspect" required>
                                                 <option value="">เลือก</option>
-                                                <option value="Customer">Customer</option>
-                                                <option value="Provider">Provider</option>
-                                                <option value="Purchaser">Purchaser</option>
-                                                <option value="Society">Society</option>
-                                                <option value="ไม่ระบุ">ไม่ระบุ</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="time_unit">หน่วยเวลาที่วัด (Time unit of cost analysis) :</label>
                                             <select class="custom-select form-control required" id="time_unit" name="time_unit" required>
                                                 <option value="">เลือก</option>
-                                                <option value="Day">Day</option>
-                                                <option value="Week">Week</option>
-                                                <option value="Month">Month</option>
-                                                <option value="3-Months">3-Months</option>
-                                                <option value="4-Months">4-Months</option>
-                                                <option value="6-Months">6-Months</option>
-                                                <option value="Year">Year</option>
-                                                <option value="Time">Time</option>
-                                                <option value="Unit">Unit</option>
-                                                <option value="ไม่ระบุ">ไม่ระบุ</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="perso_unit">หน่วยรับบริการ (Customer unit (person/group/Oth) :</label>
                                             <select class="custom-select form-control required" id="perso_unit" name="perso_unit" required>
                                                 <option value="">เลือก</option>
-                                                <option value="Person">Person</option>
-                                                <option value="Group">Group</option>
-                                                <option value="ไม่ระบุ">ไม่ระบุ</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -414,30 +333,34 @@ if (!$_SESSION["UserID"]) {
                                 <h3>Reference</h3> (ที่มา:โปรแกรมรายการต้นทุนมาตรฐานเพื่อการประเมินเทคโนโลยีด้านสุขภาพ)
                                 <div class="form-group">
                                     <label for="unit">หน่วยนับ :</label>
-                                    <select id="unit" class="custom-select form-control required">
+                                    <input type="text" class="form-control required" id="unit">
+                                    <!-- <select id="unit" class="custom-select form-control required">
                                         <option value="">เลือก</option>
-                                    </select>
+                                    </select> -->
                                 </div>
 
                                 <div class="form-group">
                                     <label for="rvu">ค่าต้นทุนต่อหนึ่งหน่วยต้นทุนสัมพัทธ์ :</label>
-                                    <select id="rvu" class="custom-select form-control required">
+                                    <input type="text" class="form-control required" id="rvu">
+                                    <!-- <select id="rvu" class="custom-select form-control required">
                                         <option value="">เลือก</option>
-                                    </select>
+                                    </select> -->
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="GenHos">ค่าต้นทุนต่อหนึ่งหน่วยบริการใน รพ.ทั่วไป/รพ.ศูนย์ :</label>
-                                    <select id="GenHos" class="custom-select form-control required">
+                                    <label for="genhos">ค่าต้นทุนต่อหนึ่งหน่วยบริการใน รพ.ทั่วไป/รพ.ศูนย์ :</label>
+                                    <input type="text" class="form-control required" id="genhos">
+                                    <!-- <select id="GenHos" class="custom-select form-control required">
                                         <option value="">เลือก</option>
-                                    </select>
+                                    </select> -->
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="CommHos">ค่าต้นทุนต่อหนึ่งหน่วยบริการใน รพ.ชุมชน :</label>
-                                    <select id="CommHos" class="custom-select form-control required">
+                                    <label for="commhos">ค่าต้นทุนต่อหนึ่งหน่วยบริการใน รพ.ชุมชน :</label>
+                                    <input type="text" class="form-control required" id="commhos">
+                                    <!-- <select id="CommHos" class="custom-select form-control required">
                                         <option value="">เลือก</option>
-                                    </select>
+                                    </select> -->
                                 </div>
 
 
@@ -472,12 +395,6 @@ if (!$_SESSION["UserID"]) {
     <script src="../assets/plugins/sparkline/jquery.sparkline.min.js"></script>
     <!--Custom JavaScript -->
     <script src="js/app-input.js"></script>
-    <script src="../assets/plugins/moment/min/moment.min.js"></script>
-    <script src="../assets/plugins/wizard/jquery.steps.min.js"></script>
-    <script src="../assets/plugins/wizard/jquery.validate.min.js"></script>
-    <!-- Sweet-Alert  -->
-    <script src="../assets/plugins/sweetalert/sweetalert.min.js"></script>
-    <script src="../assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
 </body>
 
 </html>

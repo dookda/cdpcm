@@ -1,0 +1,3 @@
+﻿1.	Agusto FB. Optimal isolation control strategies and cost-effectiveness analysis of a two-strain avian influenza model. Biosystems. 2013 Sep;113(3):155-64.
+2.	Chen SC, Liao CM. Cost-effectiveness of influenza control measures: a dynamic transmission model-based analysis. Epidemiol Infect. 2013 Dec;141(12):2581-94.
+3.	Van Maanen BM, de Boer PT, Dolk FC, Friedrich AW, Wilschut JC, Pitman R, et al. Dynamic modelling approaches for the analysis of the cost-effectiveness of seasonal influenza control. Expert Rev Vaccines. 2017 Jan;16(1):1-4.
