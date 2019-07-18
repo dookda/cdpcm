@@ -233,6 +233,7 @@ $(function () {
         bFilter: true,
         bInfo: true,
         bAutoWidth: true,
+        // bFilter: false,
         language: {
             "lengthMenu": "แสดงผล _MENU_ records",
             "zeroRecords": "Nothing found - sorry",
@@ -246,6 +247,7 @@ $(function () {
             [1, 'asc']
         ]
     });
+    $("#listingData_filter").addClass("hidden"); // hidden search input
 
     var selData = [];
 

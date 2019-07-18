@@ -126,3 +126,11 @@ tr.shown td.details-control::before {
     font-weight: 900;
     content: "\f106";
 }
+
+
+div.dataTables_wrapper div.dataTables_filter label {
+    font-weight: normal;
+    white-space: nowrap;
+    text-align: left;
+    display: none;
+}
