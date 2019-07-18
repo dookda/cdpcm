@@ -213,7 +213,7 @@ $(function () {
 
 
     getData();
-    getPro();
+    // getPro();
     getYear('Stroke');
 
 

@@ -75,8 +75,6 @@ $(function () {
     // Auto select left navbar
 
 
-
-
     // Cost of study
     var disea_grval;
     $.getJSON('http://cgi.uru.ac.th:3000/cdpcm/disease', (data) => {

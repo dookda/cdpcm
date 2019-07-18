@@ -89,6 +89,12 @@ if (!$_SESSION["UserID"]) {
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
                             <li>
+                                <a class="has-arrow" href="./../index.html" aria-expanded="false">
+                                    <i class="mdi mdi-file-find"></i>
+                                    <span class="hide-menu">หน้าหลัก</span>
+                                </a>
+                            </li>
+                            <li>
                                 <a class="has-arrow" href="index.php" aria-expanded="false">
                                     <i class="mdi mdi-file-find"></i>
                                     <span class="hide-menu">สืบค้น </span>

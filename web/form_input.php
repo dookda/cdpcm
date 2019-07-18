@@ -38,6 +38,31 @@ if (!$_SESSION["UserID"]) {
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
 </head>
 
+<script>
+    if (window.File && window.FileReader && window.FileList && window.Blob) {
+        function showFile() {
+            var preview = document.getElementById('show-text');
+            var file = document.querySelector('input[type=file]').files[0];
+            var reader = new FileReader()
+
+            var textFile = /text.*/;
+
+            if (file.type.match(textFile)) {
+                reader.onload = function(event) {
+                    // preview.innerHTML = event.target.result;
+
+                    console.log(event.target.result)
+                }
+            } else {
+                preview.innerHTML = "<span class='error'>It doesn't seem to be a text file!</span>";
+            }
+            reader.readAsText(file);
+        }
+    } else {
+        alert("Your browser is too old to support HTML5 File API");
+    }
+</script>
+
 <body class="fix-header card-no-border logo-center">
     <div class="preloader">
         <svg class="circular" viewBox="25 25 50 50">
@@ -74,6 +99,12 @@ if (!$_SESSION["UserID"]) {
             <div class="scroll-sidebar" style="margin-left: 10px">
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
+                        <li>
+                            <a class="has-arrow" href="./../index.html" aria-expanded="false">
+                                <i class="mdi mdi-file-find"></i>
+                                <span class="hide-menu">หน้าหลัก</span>
+                            </a>
+                        </li>
                         <li>
                             <a class="has-arrow" href="index.php" aria-expanded="false">
                                 <i class="mdi mdi-file-find"></i>
@@ -119,24 +150,10 @@ if (!$_SESSION["UserID"]) {
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4>import ข้อมูล</h4>
-                            <!-- <form>
-                                <div class="form-group">
-                                    <label for="exampleFormControlFile1">ข้อมูลที่สามารถนำเข้าสู่ระบบได้เป็นแบบ .txt </label>
-                                    <input type="file" class="form-control-file" id="upload" accept=".txt">
-                                    
-                                </div>
-                            </form> -->
-
-                            <form id="myForm" method="POST" action="upload.php" enctype="multipart/form-data">
-                                <div>
-                                    <label for="exampleFormControlFile1">ข้อมูลที่สามารถนำเข้าสู่ระบบได้เป็นแบบ .txt </label>
-                                    <input type="file" name="uploadedFile" class="form-control-file" accept=".txt" />
-                                </div>
-                                <p></p>
-                                <!-- <input type="submit" name="uploadBtn" value="Upload" /> -->
-                                <button type="submit" class="btn btn-primary" name="uploadBtn" value="Upload">Upload</button>
-                            </form>
+                            <h4>นำเข้าข้อมูล</h4>
+                            <input type="file" onchange="showFile()">
+                            </header>
+                            <div id="show-text"></div>
 
                         </div>
                     </div>
