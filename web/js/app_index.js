@@ -220,7 +220,7 @@ $(function () {
             // className: 'btn-group'
         }, {
             extend: 'edit',
-            text: 'แก้ใขข้อมูล',
+            text: 'แก้ไขข้อมูล',
             // className: 'btn-group'
         }, {
             extend: 'colvis',
