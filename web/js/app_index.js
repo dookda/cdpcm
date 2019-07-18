@@ -83,32 +83,32 @@ $(function () {
                 console.log(i);
                 // console.log(data[i].id);
                 var txt = `<div class='col-${col}'>
-                    ${data[i].disea_gr}<p>            
-                    ${data[i].disea_sgrp}<p>
-                    ${data[i].title}<p>            
-                    ${data[i].author}<p>
-                    ${data[i].std_area}<p>            
-                    ${data[i].objective}<p>
-                    ${data[i].cost_design}<p>            
-                    ${data[i].abstract}<p>
-                    ${data[i].year_pub}<p>            
-                    ${data[i].orig_link}<p>
-                    ${data[i].std_year}<p>            
-                    ${data[i].std_design}<p>
-                    ${data[i].samp_area}<p>            
-                    ${data[i].samp_size}<p>
-                    ${data[i].samp_meth}<p>            
-                    ${data[i].missing}<p>
-                    ${data[i].pub_type}<p>            
-                    ${data[i].activity0}<p>
-                    ${data[i].activity1}<p>            
-                    ${data[i].type_cost0}<p>
-                    ${data[i].type_cost1}<p>            
-                    ${data[i].perspect}<p>
-                    ${data[i].time_unit}<p>            
-                    ${data[i].perso_unit}<p>            
-                    ${data[i].cost_thb}<p>            
-                    ${data[i].remark}<p>
+                    <b>กลุ่มโรค (Cluster): </b>${data[i].disea_gr}<p>            
+                    <b>โรค (Disease): </b>${data[i].disea_sgrp}<p>
+                    <b>ชื่อการศึกษา (Study title): </b>${data[i].title}<p>            
+                    <b>ผู้ศึกษา (Author's name): </b>${data[i].author}<p>
+                    <b>จังหวัดที่ศึกษา (Study area): </b>${data[i].std_area}<p>            
+                    <b>วัตถุประสงค์ของการศึกษา (Objective of study): </b>${data[i].objective}<p>
+                    <b>Economic Evaluation Model: </b>${data[i].cost_design}<p>            
+                    <b>บทคัดย่อ (Abstract): </b>${data[i].abstract}<p>
+                    <b>ปีที่ตีพิมพ์ (Publish year): </b>${data[i].year_pub}<p>            
+                    <b>Oiginal source: </b>${data[i].orig_link}<p>
+                    <b>ปีที่ศึกษา (Study year): </b>${data[i].std_year}<p>            
+                    <b>รูปแบบการศึกษา (Study design): </b>${data[i].std_design}<p>
+                    <b>พื้นที่ศึกษา (Study area): </b>${data[i].samp_area}<p>            
+                    <b>ขนาดตัวอย่าง (Sample size): </b>${data[i].samp_size}<p>
+                    <b>วิธีการสุ่มตัวอย่าง (Sampling method): </b>${data[i].samp_meth}<p>            
+                    <b>Missing data: </b>${data[i].missing}<p>
+                    <b>แหล่งที่เผยแพร่ (Publish type): </b>${data[i].pub_type}<p>            
+                    <b>ชื่อกลุ่มประเภทการให้บริการ: </b>${data[i].activity0}<p>
+                    <b>รายการการให้บริการ: </b>${data[i].activity1}<p>            
+                    <b>ที่มาต้นทุน (Direct/Indirect): </b>${data[i].type_cost0}<p>
+                    <b>Sub type of costing: </b>${data[i].type_cost1}<p>            
+                    <b>มุมมองของต้นทุน: </b>${data[i].perspect}<p>
+                    <b>หน่วยเวลาที่วัด: </b>${data[i].time_unit}<p>            
+                    <b>หน่วยรับบริการ: </b>${data[i].perso_unit}<p>            
+                    <b>ราคาต้นทุน (บาท): </b>${data[i].cost_thb}<p>            
+                    <b>หมายเหตุ: </b>${data[i].remark}<p>
                     <div>
                 `;
                 $('#da').append(txt);
