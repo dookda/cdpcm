@@ -36,7 +36,7 @@ if (isset($_POST['Username'])) {
     }
 
     if ($_SESSION["Userlevel"] == "admin") {
-      Header("Location: index.php");
+      Header("Location: form_admin.php");
     }
 
     // if ($_SESSION["Userlevel"]=="farmer"){   
