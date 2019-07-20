@@ -50,6 +50,7 @@
     <!-- You can change the theme colors from here -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
 </head>
+
 <body class="fix-header card-no-border">
     <div>
         <div class="preloader">
@@ -74,7 +75,8 @@
                     <div class="navbar-collapse">
                         <ul class="navbar-nav mr-auto mt-md-0">
                             <li class="nav-item">
-                                <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)">
+                                <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark"
+                                    href="javascript:void(0)">
                                     <i class="mdi mdi-menu"></i>
                                 </a>
                             </li>
@@ -112,12 +114,12 @@
                                     <span class="hide-menu">รายงาน</span>
                                 </a>
                             </li>
-                            <!-- <li>
+                            <li>
                                 <a class="has-arrow" href="form_profile.php" aria-expanded="false">
                                     <i class="mdi mdi-account-circle"></i>
                                     <span class="hide-menu">ข้อมูลส่วนตัว</span>
                                 </a>
-                            </li> -->
+                            </li>
                             <li>
                                 <a class="has-arrow" href="logout.php" aria-expanded="false">
                                     <i class="mdi mdi-logout"></i>
@@ -144,7 +146,8 @@
                             <div class="card">
                                 <div class="card-body" style="height: 100px;">จำนวนข้อมูลที่พบ:
                                     <p>
-                                        <h1 class="text-themecolor m-b-0 m-t-0" style="margin-left:40%;"> <span id='count'></span></h1>
+                                        <h1 class="text-themecolor m-b-0 m-t-0" style="margin-left:40%;"> <span
+                                                id='count'></span></h1>
                                     </p>
                                 </div>
                             </div>

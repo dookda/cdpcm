@@ -31,7 +31,8 @@ if (!$_SESSION["UserID"]) {
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap.min.css" />
 
     <!-- google icon and font -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit:100i,300,400,500">
 
     <!-- <link href="../assets/plugins/wizard/steps.css" rel="stylesheet"> -->
@@ -76,7 +77,8 @@ if (!$_SESSION["UserID"]) {
                 <div class="navbar-collapse">
                     <ul class="navbar-nav mr-auto mt-md-0">
                         <li class="nav-item">
-                            <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)">
+                            <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark"
+                                href="javascript:void(0)">
                                 <i class="mdi mdi-menu"></i>
                             </a>
                         </li>
@@ -137,7 +139,8 @@ if (!$_SESSION["UserID"]) {
                                         <hr>
                                         <h4>รายชื่อ user ผู้เข้าใช้งาน</h4>
                                         <!-- <div id="container" style="width: 100%; height: 400px; margin: 0 auto"></div> -->
-                                        <table id="user" class="table table-striped table-bordered display" cellspacing="0" width="100%">
+                                        <table id="user" class="table table-striped table-bordered display"
+                                            cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>
                                                     <th>
@@ -153,7 +156,7 @@ if (!$_SESSION["UserID"]) {
                                                         <h6>Last name</h6>
                                                     </th>
                                                     <th>
-                                                        <h6>descriptive</h6>
+                                                        <h6>email</h6>
                                                     </th>
                                                     <th>
                                                         <h6>Delete</h6>
@@ -199,14 +202,17 @@ if (!$_SESSION["UserID"]) {
                                 <input type="text" class="form-control" id="add_lastname">
                             </div>
                             <div class="form-group">
-                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> คำอธิบาย</label>
-                                <textarea class="form-control" id="add_pdesc"></textarea>
+                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> email</label>
+                                <textarea type="email" class="form-control" id="add_pdesc"></textarea>
                             </div>
                             <div class="row">
                                 <div class="col-6">
-                                    <button type="submit" id="btnAddUsr" class="btn btn-success btn-block" data-dismiss="modal"><span class="glyphicon glyphicon-off"></span> ตกลง</button></div>
+                                    <button type="submit" id="btnAddUsr" class="btn btn-success btn-block"
+                                        data-dismiss="modal"><span class="glyphicon glyphicon-off"></span> ตกลง</button>
+                                </div>
                                 <div class="col-6">
-                                    <button type="submit" class="btn btn-danger btn-block" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> ยกเลิก</button></div>
+                                    <button type="submit" class="btn btn-danger btn-block" data-dismiss="modal"><span
+                                            class="glyphicon glyphicon-remove"></span> ยกเลิก</button></div>
                             </div>
                         </form>
                     </div>
@@ -228,9 +234,12 @@ if (!$_SESSION["UserID"]) {
                             <p></p>
                             <div class="row">
                                 <div class="col-6">
-                                    <button type="submit" id="btnYesDel" class="btn btn-success btn-block" data-dismiss="modal"><span class="glyphicon glyphicon-ok"></span> ตกลง</button></div>
+                                    <button type="submit" id="btnYesDel" class="btn btn-success btn-block"
+                                        data-dismiss="modal"><span class="glyphicon glyphicon-ok"></span> ตกลง</button>
+                                </div>
                                 <div class="col-6">
-                                    <button type="submit" class="btn btn-danger btn-block" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> ยกเลิก</button></div>
+                                    <button type="submit" class="btn btn-danger btn-block" data-dismiss="modal"><span
+                                            class="glyphicon glyphicon-remove"></span> ยกเลิก</button></div>
                             </div>
                         </form>
                     </div>

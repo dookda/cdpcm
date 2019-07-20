@@ -1,16 +1,19 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
-header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Credentials: true");
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-session_start();
+    header('Content-Type: text/html; charset=utf-8');
+    header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Credentials: true");
+    header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+    session_start();    
 
-if (!$_SESSION["UserID"]) {
-    Header("Location: form_login.php");
-}
-
+    if (isset($_SESSION["UserID"])) {
+        // echo "<script>console.log('".$_SESSION["User"]."')</script>";
+        echo "<script>var usr = '" . $_SESSION['UserID'] . "'</script>";
+    }else{
+        Header("Location: form_login.php");
+    }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +34,8 @@ if (!$_SESSION["UserID"]) {
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap.min.css" />
 
     <!-- google icon and font -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit:100i,300,400,500">
 
     <!-- <link href="../assets/plugins/wizard/steps.css" rel="stylesheet"> -->
@@ -76,7 +80,8 @@ if (!$_SESSION["UserID"]) {
                 <div class="navbar-collapse">
                     <ul class="navbar-nav mr-auto mt-md-0">
                         <li class="nav-item">
-                            <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)">
+                            <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark"
+                                href="javascript:void(0)">
                                 <i class="mdi mdi-menu"></i>
                             </a>
                         </li>
@@ -126,42 +131,46 @@ if (!$_SESSION["UserID"]) {
         <div class="page-wrapper">
             <div style="padding: 10px">
                 <div class="row page-titles">
+                </div>
+            </div>
 
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6 col-md-6">
-                                <div class="card">
-                                    <div class="row">
-                                        <div class="col-sm-6 col-md-4">
-                                            <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500" alt="" class="img-rounded img-responsive" />
-                                        </div>
-                                        <div class="col-sm-6 col-md-8">
-                                            <h4>
-                                                Admin Admin</h4>
-                                            <small><cite title="San Francisco, USA">San Francisco, USA <i class="glyphicon glyphicon-map-marker">
-                                                    </i></cite></small>
-                                            <p>
-                                                <i class="glyphicon glyphicon-envelope"></i>email@example.com
-                                                <br />
-                                                <i class="glyphicon glyphicon-globe"></i><a href="http://www.cgi.uru.ac.th">www.jquery2dotnet.com</a>
-                                                <br />
-                                                <i class="glyphicon glyphicon-gift"></i>June 02, 1988</p>
-                                            <!-- Split button -->
-                                            <div class="btn-group">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="col-sm-6 col-md-4">
+
+                                <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500"
+                                    alt="" class="img-rounded img-responsive" />
+                            </div>
+                            <div class="col-sm-6 col-md-8">
+                                <h4>ข้อมูลผู้ใช้</h4>
+                                <h3><span id="user"></span></h3>
+                                <p>
+                                    <br />
+                                    <i class="glyphicon glyphicon-globe"></i> <span id="firstname"></span>
+                                    <p></p>
+                                    <i class="glyphicon glyphicon-gift"></i> <span id="lastname"></span>
+                                    <p></p>
+                                    <i class="glyphicon glyphicon-gift"></i> <span id="email"></span>
+                                    <p></p>
+                                </p>
+                                <!-- Split button -->
+                                <hr>
+                                เข้าระบบล่าสุดเมื่อ: <span id="pdate"></span>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
-                <!-- .right-sidebar -->
             </div>
-            <footer class="footer"> © 2018 สำนักงานป้องกันควบคุมโรคที่ 2 จังหวัดพิษณุโลก </footer>
+
+
+
+            <!-- .right-sidebar -->
         </div>
+        <footer class="footer"> © 2018 สำนักงานป้องกันควบคุมโรคที่ 2 จังหวัดพิษณุโลก </footer>
+    </div>
     </div>
 
     <!-- <script src="../assets/plugins/jquery/jquery.min.js"></script> -->
@@ -186,7 +195,7 @@ if (!$_SESSION["UserID"]) {
     <script src="../assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
     <!-- <script src="../assets/plugins/sparkline/jquery.sparkline.min.js"></script> -->
     <!--Custom JavaScript -->
-    <script src="js/app_index.js"></script>
+    <script src="js/app_profile.js"></script>
     <!-- <script src="../assets/plugins/moment/min/moment.min.js"></script> -->
     <!-- <script src="../assets/plugins/wizard/jquery.steps.min.js"></script>
     <script src="../assets/plugins/wizard/jquery.validate.min.js"></script> -->

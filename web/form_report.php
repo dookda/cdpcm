@@ -37,9 +37,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit:100i,300,400,500">
 
     <!-- Leafletjs -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
 
-    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
 
     <!-- <link href="../assets/plugins/wizard/steps.css" rel="stylesheet"> -->
     <!--alerts CSS -->
@@ -83,7 +87,8 @@
                 <div class="navbar-collapse">
                     <ul class="navbar-nav mr-auto mt-md-0">
                         <li class="nav-item">
-                            <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)">
+                            <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark"
+                                href="javascript:void(0)">
                                 <i class="mdi mdi-menu"></i>
                             </a>
                         </li>
@@ -120,12 +125,12 @@
                                 <span class="hide-menu">รายงาน</span>
                             </a>
                         </li>
-                        <!-- <li>
+                        <li>
                             <a class="has-arrow" href="form_profile.php" aria-expanded="false">
                                 <i class="mdi mdi-account-circle"></i>
                                 <span class="hide-menu">ข้อมูลส่วนตัว</span>
                             </a>
-                        </li> -->
+                        </li>
                         <li>
                             <a class="has-arrow" href="logout.php" aria-expanded="false">
                                 <i class="mdi mdi-logout"></i>
@@ -179,15 +184,16 @@
                                         <div id="mapid" style="width:100%; height:800px;">
                                         </div>
                                         <script>
-                                            var mymap = L.map('mapid').setView([13.40, 100.50], 6);
+                                        var mymap = L.map('mapid').setView([13.40, 100.50], 6);
 
-                                            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                                maxZoom: 18,
-                                                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                                            }).addTo(mymap);
+                                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                            maxZoom: 18,
+                                            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                                        }).addTo(mymap);
 
-                                            // Add Overlay WMS GeoServer
-                                            var pct_sci = L.tileLayer.wms('http://www3.cgistln.nu.ac.th/geoserver/gistdata/wms?', {
+                                        // Add Overlay WMS GeoServer
+                                        var pct_sci = L.tileLayer.wms(
+                                            'http://www3.cgistln.nu.ac.th/geoserver/gistdata/wms?', {
                                                 layers: 'gistdata:province',
                                                 format: 'image/png',
                                                 version: '1.3.0',

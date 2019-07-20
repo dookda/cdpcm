@@ -41,27 +41,27 @@
 </head>
 
 <script>
-    if (window.File && window.FileReader && window.FileList && window.Blob) {
-        function showFile() {
-            var preview = document.getElementById('show-text');
-            var file = document.querySelector('input[type=file]').files[0];
-            var reader = new FileReader()
+if (window.File && window.FileReader && window.FileList && window.Blob) {
+    function showFile() {
+        var preview = document.getElementById('show-text');
+        var file = document.querySelector('input[type=file]').files[0];
+        var reader = new FileReader()
 
-            var textFile = /text.*/;
+        var textFile = /text.*/;
 
-            if (file.type.match(textFile)) {
-                reader.onload = function(event) {
-                    // preview.innerHTML = event.target.result;
-                    console.log(event.target.result)
-                }
-            } else {
-                preview.innerHTML = "<span class='error'>It doesn't seem to be a text file!</span>";
+        if (file.type.match(textFile)) {
+            reader.onload = function(event) {
+                // preview.innerHTML = event.target.result;
+                console.log(event.target.result)
             }
-            reader.readAsText(file);
+        } else {
+            preview.innerHTML = "<span class='error'>It doesn't seem to be a text file!</span>";
         }
-    } else {
-        alert("Your browser is too old to support HTML5 File API");
+        reader.readAsText(file);
     }
+} else {
+    alert("Your browser is too old to support HTML5 File API");
+}
 </script>
 
 <body class="fix-header card-no-border logo-center">
@@ -88,7 +88,8 @@
                 <div class="navbar-collapse">
                     <ul class="navbar-nav mr-auto mt-md-0">
                         <li class="nav-item">
-                            <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)">
+                            <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark"
+                                href="javascript:void(0)">
                                 <i class="mdi mdi-menu"></i>
                             </a>
                         </li>
@@ -125,12 +126,12 @@
                                 <span class="hide-menu">รายงาน</span>
                             </a>
                         </li>
-                        <!-- <li>
+                        <li>
                             <a class="has-arrow" href="form_profile.php" aria-expanded="false">
                                 <i class="mdi mdi-account-circle"></i>
                                 <span class="hide-menu">ข้อมูลส่วนตัว</span>
                             </a>
-                        </li> -->
+                        </li>
                         <li>
                             <a class="has-arrow" href="logout.php" aria-expanded="false">
                                 <i class="mdi mdi-logout"></i>
@@ -168,43 +169,52 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="disea_gr">โรค (Disease) :</label>
-                                            <select class="custom-select form-control required" id="disea_gr" name="disea_gr" required>
+                                            <select class="custom-select form-control required" id="disea_gr"
+                                                name="disea_gr" required>
                                                 <option value="">เลือก</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="disea_sgrp">DISEA_SGRP :</label>
-                                            <select class="custom-select form-control required" id="disea_sgrp" name="disea_sgrp" required>
+                                            <select class="custom-select form-control required" id="disea_sgrp"
+                                                name="disea_sgrp" required>
                                                 <option value="">เลือก</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="title">ชื่อการศึกษา (Study title) :</label>
-                                            <input type="text" class="form-control required" id="title" name="title" required>
+                                            <input type="text" class="form-control required" id="title" name="title"
+                                                required>
                                         </div>
                                         <div class="form-group">
                                             <label for="author">ผู้ศึกษา (Author’s name) :</label>
-                                            <input type="text" class="form-control required" id="author" name="author" required>
+                                            <input type="text" class="form-control required" id="author" name="author"
+                                                required>
                                         </div>
                                         <div class="form-group">
                                             <label for="std_area">จังหวัดที่ศึกษา (Study area) :</label>
-                                            <input type="text" class="form-control required" id="std_area" name="std_area" required>
+                                            <input type="text" class="form-control required" id="std_area"
+                                                name="std_area" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="objective">วัตถุประสงค์ของการศึกษา (Objective of study) :</label>
-                                            <input type="text" class="form-control required" id="objective" name="objective" required>
+                                            <label for="objective">วัตถุประสงค์ของการศึกษา (Objective of study)
+                                                :</label>
+                                            <input type="text" class="form-control required" id="objective"
+                                                name="objective" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="cost_design">COST_Design :</label>
-                                            <select class="custom-select form-control required" id="cost_design" name="cost_design" required>
+                                            <select class="custom-select form-control required" id="cost_design"
+                                                name="cost_design" required>
                                                 <option value="">เลือก</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="abstracts">บทคัดย่อ (Abstract) :</label>
-                                            <textarea type="shortDescription" class="form-control required" rows="10" id="abstracts" name="abstracts" required></textarea>
+                                            <textarea type="shortDescription" class="form-control required" rows="10"
+                                                id="abstracts" name="abstracts" required></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -221,45 +231,54 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="year_pub">ปีที่ตีพิมพ์ (Publish year) :</label>
-                                            <select class="custom-select form-control required" id="year_pub" name="year_pub" required>
+                                            <select class="custom-select form-control required" id="year_pub"
+                                                name="year_pub" required>
                                                 <option value="">เลือก</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="orig_link">Oiginal source (Web link, if available) :</label>
-                                            <input type="text" class="form-control required" id="orig_link" name="orig_link" required>
+                                            <input type="text" class="form-control required" id="orig_link"
+                                                name="orig_link" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="std_year">ปีที่ศึกษา (Study year) :</label>
-                                            <input type="text" class="form-control required" id="std_year" name="std_year" required>
+                                            <input type="text" class="form-control required" id="std_year"
+                                                name="std_year" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="std_design">รูปแบบการศึกษา (Study design) :</label>
-                                            <select class="custom-select form-control required" id="std_design" name="std_design" required>
+                                            <select class="custom-select form-control required" id="std_design"
+                                                name="std_design" required>
                                                 <option value="">เลือก</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="samp_area">พื้นที่ศึกษา (Study area) :</label>
-                                            <input type="text" class="form-control required" id="samp_area" name="samp_area" required>
+                                            <input type="text" class="form-control required" id="samp_area"
+                                                name="samp_area" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="samp_size">ขนาดตัวอย่าง (Sample size) :</label>
-                                            <input type="text" class="form-control required" id="samp_size" name="samp_size" required>
+                                            <input type="text" class="form-control required" id="samp_size"
+                                                name="samp_size" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="samp_meth">วิธีการสุ่มตัวอย่าง (Sampling method) :</label>
-                                            <input type="text" class="form-control required" id="samp_meth" name="samp_meth" required>
+                                            <input type="text" class="form-control required" id="samp_meth"
+                                                name="samp_meth" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="missing">Missing data :</label>
-                                            <input type="text" class="form-control required" id="missing" name="missing" required>
+                                            <input type="text" class="form-control required" id="missing" name="missing"
+                                                required>
                                         </div>
                                         <div class="form-group">
                                             <label for="pub_type">แหล่งที่เผยแพร่ (Publish type) :</label>
-                                            <select class="custom-select form-control required" id="pub_type" name="pub_type" required>
+                                            <select class="custom-select form-control required" id="pub_type"
+                                                name="pub_type" required>
                                                 <option value="">เลือก</option>
                                             </select>
                                         </div>
@@ -279,25 +298,29 @@
                                         <h3>Cost of study</h3>
                                         <div class="form-group">
                                             <label for="srvOffType">หน่วยให้บริการสาธารณสุข :</label>
-                                            <select class="custom-select form-control required" id="srvOffType" name="srvofftype" required>
+                                            <select class="custom-select form-control required" id="srvOffType"
+                                                name="srvofftype" required>
                                                 <option value="">เลือก</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="activity0">ชื่อกลุ่มประเภทการให้บริการ :</label>
-                                            <select class="custom-select form-control required" id="grpName" name="grpname" required>
+                                            <select class="custom-select form-control required" id="grpName"
+                                                name="grpname" required>
                                                 <option value="">เลือก</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="activity1">รายการการให้บริการ :</label>
-                                            <select class="custom-select form-control required" id="item" name="item" required>
+                                            <select class="custom-select form-control required" id="item" name="item"
+                                                required>
                                                 <option value="">เลือก</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="type_cost0">ที่มาต้นทุน (Direct/Indirect) :</label>
-                                            <select class="custom-select form-control required" id="type_cost0" name="type_cost0" required>
+                                            <select class="custom-select form-control required" id="type_cost0"
+                                                name="type_cost0" required>
                                                 <option value="">เลือก</option>
                                                 <option value="Customer">Direct</option>
                                                 <option value="Provider">Indirect</option>
@@ -306,38 +329,48 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="type_cost1">Sub type of costing :</label>
-                                            <input type="text" class="form-control required" id="type_cost1" name="type_cost1" required>
+                                            <input type="text" class="form-control required" id="type_cost1"
+                                                name="type_cost1" required>
                                         </div>
                                         <div class="form-group">
-                                            <label for="perspect">มุมมองของต้นทุน (Customer/Provider/Purchaser/Society) :</label>
-                                            <select class="custom-select form-control required" id="perspect" name="perspect" required>
+                                            <label for="perspect">มุมมองของต้นทุน (Customer/Provider/Purchaser/Society)
+                                                :</label>
+                                            <select class="custom-select form-control required" id="perspect"
+                                                name="perspect" required>
                                                 <option value="">เลือก</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="time_unit">หน่วยเวลาที่วัด (Time unit of cost analysis) :</label>
-                                            <select class="custom-select form-control required" id="time_unit" name="time_unit" required>
+                                            <label for="time_unit">หน่วยเวลาที่วัด (Time unit of cost analysis)
+                                                :</label>
+                                            <select class="custom-select form-control required" id="time_unit"
+                                                name="time_unit" required>
                                                 <option value="">เลือก</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="perso_unit">หน่วยรับบริการ (Customer unit (person/group/Oth) :</label>
-                                            <select class="custom-select form-control required" id="perso_unit" name="perso_unit" required>
+                                            <label for="perso_unit">หน่วยรับบริการ (Customer unit (person/group/Oth)
+                                                :</label>
+                                            <select class="custom-select form-control required" id="perso_unit"
+                                                name="perso_unit" required>
                                                 <option value="">เลือก</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="cost_thb">ราคาต้นทุน (บาท) :</label>
-                                            <input type="number" step="any" class="form-control required" id="cost_thb" name="cost_thb" required>
+                                            <input type="number" step="any" class="form-control required" id="cost_thb"
+                                                name="cost_thb" required>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="remark">หมายเหตุ :</label>
-                                            <textarea type="text" class="form-control required" rows="4" id="remark" name="remark"></textarea>
+                                            <textarea type="text" class="form-control required" rows="4" id="remark"
+                                                name="remark"></textarea>
                                         </div>
                                         <p></p>
                                         <p>
-                                            <button type="submit" id="sendForm" class="btn btn-primary">บันทึกข้อมูล</button>
+                                            <button type="submit" id="sendForm"
+                                                class="btn btn-primary">บันทึกข้อมูล</button>
                                             <p></p>
                                     </div>
                                 </div>

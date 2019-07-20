@@ -26,6 +26,9 @@ if (isset($_POST['Username'])) {
     $_SESSION["Userlevel"] = $row[2];
 
 
+    $log = "INSERT INTO users_log (id_user, pdate)VALUES('".$_SESSION['UserID']."', now())";
+    pg_query($log);
+
     if ($_SESSION["Userlevel"] == "user") {
       Header("Location: index.php");
     }
