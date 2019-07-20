@@ -116,7 +116,6 @@ $(function () {
         }
     };
 
-
     $.fn.dataTable.ext.buttons.edit = {
 
         action: (e, dt, node, config) => {

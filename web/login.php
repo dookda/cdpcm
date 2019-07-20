@@ -13,36 +13,25 @@ if (isset($_POST['Username'])) {
   //รับค่า user & password
   $Username = $_POST['Username'];
   $Password = $_POST['Password'];
-
   //query 
-  $sql = "SELECT * FROM users Where id_user='" . $Username . "' and id_pass='" . $Password . "' ";
-
+  $sql = "SELECT id_user, token, usr_level FROM users Where id_user='" . $Username . "' and id_pass='" . $Password . "' ";
   $result = pg_query($sql);
-
   if (pg_num_rows($result) == 1) {
-
     $row = pg_fetch_array($result);
-
-    echo  $row[0];
-    echo  $row[1];
-    echo  $row[8];
-
+    // echo  $row[0];
+    // echo  $row[1];
+    // echo  $row[8];
     $_SESSION["UserID"] = $row[0];
-    $_SESSION["User"] = $row[1] . " " . $row[2];
-    $_SESSION["Userlevel"] = $row[8];
+    $_SESSION["User"] = $row[1];
+    $_SESSION["Userlevel"] = $row[2];
+
 
     if ($_SESSION["Userlevel"] == "user") {
       Header("Location: index.php");
     }
-
     if ($_SESSION["Userlevel"] == "admin") {
       Header("Location: form_admin.php");
     }
-
-    // if ($_SESSION["Userlevel"]=="farmer"){   
-    //   Header("Location: user_page.php"); 
-    // }
-
   } else {
     echo "<script>";
     echo "alert(\" user หรือ  password ไม่ถูกต้อง\");";
@@ -51,7 +40,7 @@ if (isset($_POST['Username'])) {
   }
 } else {
 
-
-  Header("Location: form_login.php");
+  Header("Location: index.html");
 }
 pg_close($dbconn);
+?>

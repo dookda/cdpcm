@@ -1,20 +1,18 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
-header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Credentials: true");
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-session_start();
+    header('Content-Type: text/html; charset=utf-8');
+    header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Credentials: true");
+    header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+    session_start();    
 
-if (!$_SESSION["UserID"]) {
-    Header("Location: form_login.php");
-}
-
-
-echo "<script>var id = " . $_GET['id'] . "</script>";
-
+    if (isset($_SESSION["UserID"])) {
+        // echo "<script>console.log('".$_SESSION["User"]."')</script>";
+        echo "<script>var id = " . $_GET['id'] . "</script>";
+    }else{
+        Header("Location: form_login.php");
+    }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,11 +56,7 @@ echo "<script>var id = " . $_GET['id'] . "</script>";
                     </div>
                 </div>
                 <span id="headerName">Cost of Disease Prevention and Control Program, Thailand (CDPCM Thailand)</span>
-                <?php
-                // echo session_id();
-                // echo '<br>';
-                // echo $_SESSION["UserID"];
-                ?>
+             
                 <div class="navbar-collapse">
                     <ul class="navbar-nav mr-auto mt-md-0">
                         <li class="nav-item">

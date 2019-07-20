@@ -116,16 +116,18 @@ $(function () {
         }
     };
 
-
     $.fn.dataTable.ext.buttons.edit = {
-
         action: (e, dt, node, config) => {
+            // console.log(usr);
             const data = table.rows('.selected').data();
-
             if (data.length == 0) {
-                console.log('unn')
-            } else {
+                // console.log('unn');
+                alert('กรุณาเลือกแถว (row) ที่ต้องการแก้ใขข้อมูล')
+            } else if (data[0].usr === usr) {
                 window.open('./form_edit.php?id=' + data[0].id);
+            } else {
+                // console.log('คุณไม่สามารถแก้ใขข้อมูลนี้')
+                alert('คุณไม่ใช่เจ้าของข้อมูลนี้ ไม่สามารถแก้ใขข้อมูลนี้ได้')
             }
         }
     }
@@ -293,7 +295,7 @@ $(function () {
             var val = input.val().toLowerCase();
             for (var i = 0, ien = columns.length; i < ien; i++) {
                 if (searchData[columns[i]].toLowerCase().indexOf(val) !== -1) {
-                    console.log(table.page.info().recordsDisplay);
+                    // console.log(table.page.info().recordsDisplay);
                     $('#count').html(table.page.info().recordsDisplay)
                     return true;
                 }
@@ -304,55 +306,6 @@ $(function () {
     }
     // var table = $("#table").DataTable();
     var filter0 = createFilter(table, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
-    // var filter1 = createFilter(table, [0, 1]);
-    // var filter2 = createFilter(table, [2]);
-    // var filter3 = createFilter(table, [3]);
-    // var filter4 = createFilter(table, [4]);
-    // var filter5 = createFilter(table, [5]);
-    // var filter6 = createFilter(table, [6]);
-    // var filter7 = createFilter(table, [7]);
-    // var filter8 = createFilter(table, [8]);
-    // var filter9 = createFilter(table, [9]);
-    // var filter10 = createFilter(table, [10]);
-    // var filter11 = createFilter(table, [11]);
-    // var filter12 = createFilter(table, [12]);
-    // var filter13 = createFilter(table, [13]);
-    // var filter14 = createFilter(table, [14]);
-    // var filter15 = createFilter(table, [15]);
-    // var filter16 = createFilter(table, [16]);
-    // var filter17 = createFilter(table, [17]);
-    // var filter18 = createFilter(table, [18]);
-    // var filter19 = createFilter(table, [19]);
-    // var filter20 = createFilter(table, [20]);
-    // var filter21 = createFilter(table, [21]);
-    // var filter22 = createFilter(table, [22]);
-    // var filter23 = createFilter(table, [23]);
-    // var filter24 = createFilter(table, [24]);
 
-    // filter0.appendTo("#d0");
-    // filter1.appendTo("#d1");
-    // filter2.appendTo("#d2");
-    // filter3.appendTo("#d3");
-    // filter4.appendTo("#d4");
-    // filter5.appendTo("#d5");
-    // filter6.appendTo("#d6");
-    // filter7.appendTo("#d7");
-    // filter8.appendTo("#d8");
-    // filter9.appendTo("#d9");
-    // filter10.appendTo("#d10");
-    // filter11.appendTo("#d11");
-    // filter12.appendTo("#d12");
-    // filter13.appendTo("#d13");
-    // filter14.appendTo("#d14");
-    // filter15.appendTo("#d15");
-    // filter16.appendTo("#d16");
-    // filter17.appendTo("#d17");
-    // filter18.appendTo("#d18");
-    // filter19.appendTo("#d19");
-    // filter20.appendTo("#d20");
-    // filter21.appendTo("#d21");
-    // filter22.appendTo("#d22");
-    // filter23.appendTo("#d23");
-    // filter24.appendTo("#d24");
 
 });

@@ -1,14 +1,17 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
-header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Credentials: true");
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-session_start();
+    header('Content-Type: text/html; charset=utf-8');
+    header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Credentials: true");
+    header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+    session_start();    
 
-if (!$_SESSION["UserID"]) {
-    Header("Location: form_login.php");
-}
+    if (isset($_SESSION["UserID"])) {
+        // echo "<script>console.log('".$_SESSION["User"]."')</script>";
+        echo "<script>var usr = '" . $_SESSION['UserID'] . "'</script>";
+    }else{
+        Header("Location: form_login.php");
+    }
 ?>
 
 
@@ -47,11 +50,6 @@ if (!$_SESSION["UserID"]) {
     <!-- You can change the theme colors from here -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
 </head>
-
-<style>
-
-</style>
-
 <body class="fix-header card-no-border">
     <div>
         <div class="preloader">

@@ -199,7 +199,7 @@ $(function () {
     // Cost of study
     $.getJSON('http://cgi.uru.ac.th:3000/cdpcm/getselected/' + id, (d) => {
         var data = d[0];
-        console.log(data);
+        // console.log(data);
         $('#disea_gr').val(data.disea_gr);
         $('#disea_sgrp').val(data.disea_sgrp);
         $('#title').val(data.title);
