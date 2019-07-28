@@ -106,7 +106,7 @@ $(function () {
         }, {
             "data": "lastname"
         }, {
-            "data": "pdesc"
+            "data": "email"
         }, {
             data: null,
             className: "center",
@@ -146,14 +146,14 @@ $(function () {
         var id_pass = $('#add_id_pass').val();
         var firstname = $('#add_firstname').val();
         var lastname = $('#add_lastname').val();
-        var pdesc = $('#add_pdesc').val();
+        var email = $('#add_email').val();
         // console.log(id_user);
         $.post('http://cgi.uru.ac.th:3000/cdpcm/insertuser', {
             id_user: id_user,
             id_pass: id_pass,
             firstname: firstname,
             lastname: lastname,
-            pdesc: pdesc
+            email: email
         }, (data, status) => {
             tb.ajax.reload(null, false);
         })

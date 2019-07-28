@@ -73,7 +73,23 @@ $(function () {
     });
 
     // Auto select left navbar
-
+    $("#txtLoad").change((e) => {
+        var txtRaw;
+        var preview = $('#show-text');
+        var file = document.querySelector('input[type=file]').files[0];
+        var reader = new FileReader()
+        var textFile = /text.*/;
+        if (file.type.match(textFile)) {
+            reader.onload = function (event) {
+                // preview.innerHTML = event.target.result;
+                var txtRaw = event.target.result.split("\n");
+                console.log(txtRaw);
+            }
+        } else {
+            preview.innerHTML = "<span class='error'>It doesn't seem to be a text file!</span>";
+        }
+        reader.readAsText(file);
+    })
 
     // Cost of study
     var disea_grval;

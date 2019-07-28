@@ -203,7 +203,7 @@ if (!$_SESSION["UserID"]) {
                             </div>
                             <div class="form-group">
                                 <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> email</label>
-                                <textarea type="email" class="form-control" id="add_pdesc"></textarea>
+                                <textarea type="email" class="form-control" id="email"></textarea>
                             </div>
                             <div class="row">
                                 <div class="col-6">

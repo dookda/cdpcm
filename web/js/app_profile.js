@@ -75,7 +75,7 @@ $(function () {
     function getUser(usr_id) {
         $.getJSON('http://cgi.uru.ac.th:3000/cdpcm/getuser/' + usr_id, (dat) => {
             let data = dat[0];
-            console.log(data)
+            // console.log(data)
             $('#user').text(data.id_user);
             $('#firstname').text(data.firstname);
             $('#lastname').text(data.lastname);
